@@ -11,9 +11,12 @@ CFLAGS			:= 		-Wall -Wextra -Werror -MD -MP -g3
 MLX_FLAGS		:=		-lXext -lX11 -lm -lz
 
 
-SRC				:=		$(addsuffix .c, \
-						main \
-						parsing)
+SRC				:=		src/main.c \
+						src/initialization/free_map.c \
+						src/initialization/get_number_line.c \
+						src/initialization/map_init.c \
+						src/initialization/replace_char.c \
+						src/parsing/map_exist.c
 
 ########################################################################################################################
 #                                                      DIRECTORY                                                       #
@@ -26,7 +29,8 @@ LIBFT_DIR		:=		libft/
 LIBFT			:= 		$(LIBFT_DIR)libft.a
 MLX 			:= 		./minilibx-linux
 
-OBJ				:= 		$(SRC:%.c=$(OBJ_DIR)%.o)
+OBJ             := 		$(SRC:$(SRC_PATH)%.c=$(OBJ_DIR)%.o)
+
 #OBJ_BONUS 		:= 		$(SRC_BONUS:%.c=$(OBJ_DIR)%.o)
 DEP				:=		$(OBJ:%.o=%.d)
 
@@ -41,12 +45,6 @@ all : 					.print_header lib $(NAME)
 lib :
 							@$(MAKE) --silent -C $(LIBFT_DIR)
 
-#bonus :					.print_header $(OBJ_BONUS)
-#							@printf "%-50b%b" "  $(YELLOW)[$(NAME) bonus version] :$(RESET)" "\n"
-#							@printf "%-50b%b" "  => $(BOLD_GREEN)Created$(RESET)" $(call PROGRESS_BAR) "$(BOLD_GREEN)[✓]$(RESET)\n"
-#							@$(AR) -o $(NAME) $(OBJ_BONUS)
-#							$(call SEPARATOR)
-
 clean :					.print_header
 							@printf "%-50b%b" "  $(YELLOW)[so_long/$(OBJ_DIR)] :$(RESET)" "\n"
 							@rm -rf $(OBJ_DIR)
@@ -58,13 +56,25 @@ clean :					.print_header
 							@printf "\n"
 
 fclean : 				clean
-							@printf "%-50b%b" "  $(YELLOW)[$(NAME)] :$(RESET)" "\n"
 							@rm -f $(NAME)
-							@printf "%-50b%b" "  => $(BOLD_RED)Clean$(RESET)" $(call PROGRESS_BAR) "$(BOLD_GREEN)[✓]$(RESET)\n"
 							@$(MAKE) --silent -C $(LIBFT_DIR) fclean
+							@printf "%-50b%b" "  $(YELLOW)[$(NAME)] :$(RESET)" "\n"
+							@printf "%-50b%b" "  => $(BOLD_RED)Clean$(RESET)" $(call PROGRESS_BAR) "$(BOLD_GREEN)[✓]$(RESET)\n"
+							@$(MAKE) --silent -C $(MLX) clean > /dev/null 2>&1
+							@printf "%-50b%b" "\n  $(YELLOW)[$(MLX)] :$(RESET)" "\n"
+							@printf "%-50b%b" "  => $(BOLD_RED)Clean$(RESET)" $(call PROGRESS_BAR) "$(BOLD_GREEN)[✓]$(RESET)\n"
 							$(call SEPARATOR)
 
 re : 					.print_header fclean all $(LIBFT) $(NAME)
+
+debug:
+							@echo "Vérification des chemins des fichiers source:"
+							@echo "SRC_PATH = $(SRC_PATH)"
+							@ls -la $(SRC_PATH)
+							@echo "Main.c existe? $(shell test -f $(SRC_PATH)main.c && echo 'OUI' || echo 'NON')"
+							@echo "DIR_PATH_INIT = $(DIR_PATH_INIT)"
+							@ls -la $(DIR_PATH_INIT)
+							@echo "free_map.c existe? $(shell test -f $(DIR_PATH_INIT)free_map.c && echo 'OUI' || echo 'NON')"
 
 .print_header :
 							$(call TITLE)
@@ -77,20 +87,25 @@ re : 					.print_header fclean all $(LIBFT) $(NAME)
 #                                                       COMMANDS                                                       #
 ########################################################################################################################
 
-$(NAME) 			: 	$(OBJ) $(LIBFT_DIR)
-							@printf "%-50b%b" "  $(YELLOW)[$(NAME)] :$(RESET)" "\n"
+$(NAME) 			: 	$(OBJ) $(LIBFT)
+							@$(MAKE) --silent -C $(MLX) > /dev/null 2>&1
+							@printf "%-50b%b" "  $(YELLOW)[MLX] :$(RESET)" "\n"
 							@printf "%-50b%b" "  => $(BOLD_GREEN)Created$(RESET)" $(call PROGRESS_BAR) "$(BOLD_GREEN)[✓]$(RESET)\n"
-							@$-o $(NAME) -o $(OBJ) $(MLX)/libmlx.a $(MLX_FLAGS)
+							@printf "%-50b%b" "\n  $(YELLOW)[$(NAME)] :$(RESET)" "\n"
+							@printf "%-50b%b" "  => $(BOLD_GREEN)Created$(RESET)" $(call PROGRESS_BAR) "$(BOLD_GREEN)[✓]$(RESET)\n"
+							@$(CC) -o $(NAME) $(OBJ) $(LIBFT) $(MLX)/libmlx.a $(MLX_FLAGS)
 							$(call SEPARATOR)
 
-$(OBJ_DIR)%.o		:	$(SRC_PATH)%.c $(INC_PATH)so_long.h | $(OBJ_DIR)
-							@$(MAKE) --silent -C $(MLX)
-							@$(CC) $(CFLAGS) -I$(LIBFT_DIR) -c $< -o $@
+$(OBJ_DIR)%.o		:	 $(SRC_PATH)%.c $(INC_PATH)so_long.h | $(OBJ_DIR)
+							@mkdir -p $(dir $@)
+							@$(CC) $(CFLAGS) -I$(INC_PATH) -I$(LIBFT_DIR) -c $< -o $@
 
 $(OBJ_DIR)			:
 							@printf "%-50b%b" "  $(YELLOW)[so_long/$(OBJ_DIR)] :$(RESET)" "\n"
 							@printf "%-50b%b" "  => $(BOLD_GREEN)Created$(RESET)" $(call PROGRESS_BAR) "$(BOLD_GREEN)[✓]$(RESET)\n"
 							@mkdir -p $(OBJ_DIR)
+							@mkdir -p $(OBJ_DIR)initialization/
+							@mkdir -p $(OBJ_DIR)parsing/
 							@printf "\n"
 
 ########################################################################################################################
