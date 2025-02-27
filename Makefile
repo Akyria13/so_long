@@ -80,7 +80,7 @@ re : 					.print_header fclean all $(LIBFT) $(NAME)
 $(NAME) 			: 	$(OBJ) $(LIBFT_DIR)
 							@printf "%-50b%b" "  $(YELLOW)[$(NAME)] :$(RESET)" "\n"
 							@printf "%-50b%b" "  => $(BOLD_GREEN)Created$(RESET)" $(call PROGRESS_BAR) "$(BOLD_GREEN)[✓]$(RESET)\n"
-							@$(AR) -o $(NAME) $(OBJ) $(MLX)/libmlx.a $(MLX) $(MLX_FLAGS)
+							@$-o $(NAME) -o $(OBJ) $(MLX)/libmlx.a $(MLX_FLAGS)
 							$(call SEPARATOR)
 
 $(OBJ_DIR)%.o		:	$(SRC_PATH)%.c $(INC_PATH)so_long.h | $(OBJ_DIR)

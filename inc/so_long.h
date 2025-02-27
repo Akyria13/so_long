@@ -6,7 +6,7 @@
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 18:44:43 by jowagner          #+#    #+#             */
-/*   Updated: 2025/02/26 01:52:12 by jowagner         ###   ########.fr       */
+/*   Updated: 2025/02/26 20:10:46 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,10 @@
 
 //-- Utils function --//
 //--- --- --- --- ---//
-int	get_number_line(char *line);
-void	free_map(char **map);
+int			get_number_line(char *line);
+void		free_map(char **map);
 char**		map_init(int count_line);
+void		replace_char(char **map, char old_char, char new_char);
 //--- --- --- --- ---//
 
 #endif
