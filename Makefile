@@ -12,11 +12,18 @@ MLX_FLAGS		:=		-lXext -lX11 -lm -lz
 
 
 SRC				:=		src/main.c \
+						src/initialization/close_file.c \
 						src/initialization/free_map.c \
-						src/initialization/get_number_line.c \
+						src/initialization/initialization.c \
 						src/initialization/map_init.c \
-						src/initialization/replace_char.c \
-						src/parsing/map_exist.c
+						src/initialization/open_file.c \
+						src/initialization/pre_read.c \
+						src/mlx/sprite_init.c \
+						src/parsing/check_file_extension.c \
+						src/window/init_so_long.c \
+						src/window/put_tiles.c \
+						src/window/window_size.c \
+						#src/parsing/map_exist.c
 
 ########################################################################################################################
 #                                                      DIRECTORY                                                       #

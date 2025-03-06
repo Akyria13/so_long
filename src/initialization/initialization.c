@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_init.c                                         :+:      :+:    :+:   */
+/*   initialization.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/27 14:53:13 by jowagner          #+#    #+#             */
-/*   Updated: 2025/03/05 15:13:14 by jowagner         ###   ########.fr       */
+/*   Created: 2025/03/04 19:05:45 by jowagner          #+#    #+#             */
+/*   Updated: 2025/03/06 16:19:11 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/so_long.h"
 
-char	**map_init(int count_line, char *filename)
+void	initialization(char *filename, t_data *data)
 {
-	char	**map;
-	int		i;
-	int		fd;
+	int	count_line;
+	int	fd;
 
+	if (check_file_extension(filename, ".ber") == false)
+	{
+		ft_putstr_fd("Error.\nThe extension map must be .ber\n", 2);
+		exit(1);
+	}
 	fd = open_file(filename);
-	map = malloc(sizeof(char *) * (count_line + 1));
-	if (map == NULL)
-		return (NULL);
-	map[count_line] = NULL;
-	i = 0;
-	while (i < count_line)
-		map[i++] = get_next_line(fd);
-	close_file(fd);
-	return (map);
+	count_line = pre_read(fd);
+	data->map = map_init(count_line, filename);
+	if (!data->map)
+		ft_putstr_fd("Error initializing map.\n", 2);
+	window_size(data);
 }

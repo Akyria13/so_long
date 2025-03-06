@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   replace_char.c                                     :+:      :+:    :+:   */
+/*   pre_read.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/27 14:53:44 by jowagner          #+#    #+#             */
-/*   Updated: 2025/02/27 14:55:42 by jowagner         ###   ########.fr       */
+/*   Created: 2025/02/27 14:50:13 by jowagner          #+#    #+#             */
+/*   Updated: 2025/03/05 15:24:00 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/so_long.h"
 
-void	replace_char(char **map, char old_char, char new_char)
+int	pre_read(int fd)
 {
-	int i;
-	int j;
+	char	*line;
+	int		count_line;
 
-	if (map == NULL)
-		return ;
-	i = 0;
-	while (map[i] != NULL)
+	count_line = 0;
+	line = "";
+	while (line != NULL)
 	{
-		j = 0;
-		while (map[i][j] != '\0')
-		{
-			if (map[i][j] == old_char)
-				map[i][j] = new_char;
-			j++;
-		}
-		i++;
+		line = get_next_line(fd);
+		if (line)
+			count_line++;
+		free(line);
 	}
+	close_file(fd);
+	return (count_line);
 }

@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_init.c                                         :+:      :+:    :+:   */
+/*   window_size.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/27 14:53:13 by jowagner          #+#    #+#             */
-/*   Updated: 2025/03/05 15:13:14 by jowagner         ###   ########.fr       */
+/*   Created: 2025/03/05 18:21:55 by jowagner          #+#    #+#             */
+/*   Updated: 2025/03/06 15:27:29 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/so_long.h"
 
-char	**map_init(int count_line, char *filename)
+void	window_size(t_data *data)
 {
-	char	**map;
-	int		i;
-	int		fd;
+	int i;
+	int j;
 
-	fd = open_file(filename);
-	map = malloc(sizeof(char *) * (count_line + 1));
-	if (map == NULL)
-		return (NULL);
-	map[count_line] = NULL;
-	i = 0;
-	while (i < count_line)
-		map[i++] = get_next_line(fd);
-	close_file(fd);
-	return (map);
+	j = 0;
+	while (data->map[j] != NULL)
+	{
+		i = 0;
+		while (data->map[j][i])
+		{
+			i++;
+		}
+		j++;
+	}
+	data->width_map = i;
+	data->height_map = j;
 }

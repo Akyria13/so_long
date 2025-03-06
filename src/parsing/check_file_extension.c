@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_number_line                                    :+:      :+:    :+:   */
+/*   check_file_extension.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/27 14:50:13 by jowagner          #+#    #+#             */
-/*   Updated: 2025/02/27 14:52:01 by jowagner         ###   ########.fr       */
+/*   Created: 2025/02/27 16:53:05 by jowagner          #+#    #+#             */
+/*   Updated: 2025/03/06 16:14:49 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/so_long.h"
 
-int	get_number_line(char *line)
+bool	check_file_extension(char *filepath, char *extension)
 {
-	int count_line;
-	int fd;
+	int	filename_len;
+	int	extension_len;
 
-	fd = open("map/map01.ber", O_RDONLY);
-	// if (fd == -1)
-	// 	exit_function();
-	count_line = 0;
-	line = "";
-	while (line != NULL)
-	{
-		count_line++;
-		line = get_next_line(fd);
-		free(line);
-	}
-	close(fd);
-	return (count_line);
+	filename_len = ft_strlen(filepath);
+	extension_len = ft_strlen(extension);
+	if (filename_len <= extension_len)
+		return (false);
+	if (ft_strncmp(&filepath[filename_len - extension_len], extension,
+			extension_len) == 0)
+		return (true);
+	return (false);
 }

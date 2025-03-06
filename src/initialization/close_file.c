@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_exist.c                                        :+:      :+:    :+:   */
+/*   close_file.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/27 16:53:05 by jowagner          #+#    #+#             */
-/*   Updated: 2025/02/27 17:42:01 by jowagner         ###   ########.fr       */
+/*   Created: 2025/03/05 15:02:24 by jowagner          #+#    #+#             */
+/*   Updated: 2025/03/05 15:05:22 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/so_long.h"
 
-void	map_exist(t_map **map)
+int	close_file(int fd)
 {
-	if (map == NULL)
+	int result;
+
+	result = close(fd);
+	if (result == -1)
 	{
-		perror("Error opening file.");
+		perror("Error in ft_close_file ");
 		exit(1);
+		return (result);
 	}
+	else
+		return (result);
 }

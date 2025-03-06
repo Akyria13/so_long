@@ -35,7 +35,6 @@ LIBFT_SRC			:=		$(addsuffix .c, \
 							ft_strdup \
 							ft_strlcat \
 							ft_strlcpy \
-							ft_strlen \
 							ft_strncmp \
 							ft_strnstr \
 							ft_strrchr \
@@ -61,7 +60,6 @@ LIBFT_SRC			:=		$(addsuffix .c, \
 							ft_lstclear \
 							ft_lstiter \
 							ft_lstmap)
-
 PRINTF_SRC      	:= 		$(addsuffix .c, \
                 	 		ft_printf \
                 			ft_printint \
