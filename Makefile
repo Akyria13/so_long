@@ -75,13 +75,13 @@ fclean : 				clean
 re : 					.print_header fclean all $(LIBFT) $(NAME)
 
 debug:
-							@echo "Vérification des chemins des fichiers source:"
-							@echo "SRC_PATH = $(SRC_PATH)"
+							@printf "Checking source file paths : "
+							@printf "SRC_PATH = $(SRC_PATH)"
 							@ls -la $(SRC_PATH)
-							@echo "Main.c existe? $(shell test -f $(SRC_PATH)main.c && echo 'OUI' || echo 'NON')"
-							@echo "DIR_PATH_INIT = $(DIR_PATH_INIT)"
+							@printf "Main.c exist ? $(shell test -f $(SRC_PATH)main.c && echo 'YES' || echo 'NO')\n"
+							@printf "DIR_PATH_INIT = $(DIR_PATH_INIT)"
 							@ls -la $(DIR_PATH_INIT)
-							@echo "free_map.c existe? $(shell test -f $(DIR_PATH_INIT)free_map.c && echo 'OUI' || echo 'NON')"
+							@printf "Free_map.c exist ? $(shell test -f $(DIR_PATH_INIT)free_map.c && echo 'YES' || echo 'NO')"
 
 .print_header :
 							$(call TITLE)
@@ -112,7 +112,9 @@ $(OBJ_DIR)			:
 							@printf "%-50b%b" "  => $(BOLD_GREEN)Created$(RESET)" $(call PROGRESS_BAR) "$(BOLD_GREEN)[✓]$(RESET)\n"
 							@mkdir -p $(OBJ_DIR)
 							@mkdir -p $(OBJ_DIR)initialization/
+							@mkdir -p $(OBJ_DIR)mlx/
 							@mkdir -p $(OBJ_DIR)parsing/
+							@mkdir -p $(OBJ_DIR)window/
 							@printf "\n"
 
 ########################################################################################################################

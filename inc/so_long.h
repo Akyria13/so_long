@@ -6,7 +6,7 @@
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 18:44:43 by jowagner          #+#    #+#             */
-/*   Updated: 2025/03/06 18:44:43 by jowagner         ###   ########.fr       */
+/*   Updated: 2025/03/07 19:39:00 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,20 @@
 # include <string.h>
 # include <unistd.h>
 
-#define SPRITE_SIZE 64
+#define SIZE_S 64
+#define Tree_S_F01 "./textures/Tree-Frame01.xpm"
+#define Tree_S_F02 "./textures/Tree-Frame02.xpm"
+#define Grass_S_F01 "./textures/Grass-Frame01.xpm"
+#define Pokeball_S_F01 "./textures/Pokeball-Frame01.xpm"
+#define Player_S_Bot_F01 "./textures/Sacha-Bot-Frame01.xpm"
+#define Player_S_Bot_L_F02 "./textures/Sacha-Bot-L-Frame02.xpm"
+#define Player_S_Bot_R_F03 "./textures/Sacha-Bot-R-Frame03.xpm"
 #define Lugia_S_F01 "./textures/Lugia-Frame01.xpm"
 #define Lugia_S_F02 "./textures/Lugia-Frame02.xpm"
 #define Lugia_S_F03 "./textures/Lugia-Frame03.xpm"
-#define Tree_S_F01 "./textures/Tree.xpm"
-#define Grass_S_F01 "./textures/Grass.xpm"
+#define Fire_S_01 "./textures/Fire-Frame01.xpm"
+#define Fire_S_02 "./textures/Fire-Frame02.xpm"
+#define Fire_S_03 "./textures/Fire-Frame03.xpm"
 
 typedef struct s_mlx_vars
 {
@@ -54,11 +62,19 @@ typedef struct s_image
 
 typedef struct s_game
 {
-	t_image 				lugia_sprite_01;
-	t_image 				lugia_sprite_02;
-	t_image 				lugia_sprite_03;
-	t_image					tree_sprite_01;
-	t_image					grass_sprite_01;
+	t_image					tree_s_01;
+	t_image					tree_s_02;
+	t_image					grass_s_01;
+	t_image					pokeball_s_01;
+	t_image					player_bot_s_01;
+	t_image					player_bot_l_02;
+	t_image					player_bot_r_03;
+	t_image 				lugia_s_01;
+	t_image 				lugia_s_02;
+	t_image 				lugia_s_03;
+	t_image					fire_s_01;
+	t_image					fire_s_02;
+	t_image					fire_s_03;
 }			t_game;
 
 typedef struct s_so_long
@@ -89,8 +105,10 @@ int			pre_read(int fd);
 //--- --- --- --- ---//
 
 //- MLX -//
-void		sprite_init_lugia(t_so_long *so_long);
 void		sprite_init_env(t_so_long *so_long);
+void		sprite_init_player(t_so_long *so_long);
+void		sprite_init_lugia(t_so_long *so_long);
+void		sprite_init_fire(t_so_long *so_long);
 //--- --- --- --- ---//
 
 //- Parsing -//
@@ -100,7 +118,6 @@ bool		check_file_extension(char *filepath, char *extension);
 //- Window -//
 int			init_so_long(t_so_long *so_long);
 void		window_size(t_data *data);
-//void	put_tiles(t_data data);
 //--- --- --- --- ---//
 
 #endif
