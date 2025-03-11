@@ -6,7 +6,7 @@
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 18:44:43 by jowagner          #+#    #+#             */
-/*   Updated: 2025/03/07 19:39:00 by jowagner         ###   ########.fr       */
+/*   Updated: 2025/03/11 17:48:42 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,19 +26,22 @@
 # include <unistd.h>
 
 #define SIZE_S 64
-#define Tree_S_F01 "./textures/Tree-Frame01.xpm"
-#define Tree_S_F02 "./textures/Tree-Frame02.xpm"
+//Environment
+#define Wall_S_F01 "./textures/Tree-Frame01.xpm"
+#define Wall_S_F02 "./textures/Tree-Frame02.xpm"
 #define Grass_S_F01 "./textures/Grass-Frame01.xpm"
-#define Pokeball_S_F01 "./textures/Pokeball-Frame01.xpm"
+#define Exit_S_01 "./textures/Well-Frame01.xpm"
+#define Collectible_S_F01 "./textures/Pokeball-01-Frame01.xpm"
+#define Collectible_S_F02 "./textures/Pokeball-02-Frame01.xpm"
+#define Collectible_S_F03 "./textures/Pokeball-03-Frame01.xpm"
+//Player
 #define Player_S_Bot_F01 "./textures/Sacha-Bot-Frame01.xpm"
 #define Player_S_Bot_L_F02 "./textures/Sacha-Bot-L-Frame02.xpm"
 #define Player_S_Bot_R_F03 "./textures/Sacha-Bot-R-Frame03.xpm"
-#define Lugia_S_F01 "./textures/Lugia-Frame01.xpm"
-#define Lugia_S_F02 "./textures/Lugia-Frame02.xpm"
-#define Lugia_S_F03 "./textures/Lugia-Frame03.xpm"
-#define Fire_S_01 "./textures/Fire-Frame01.xpm"
-#define Fire_S_02 "./textures/Fire-Frame02.xpm"
-#define Fire_S_03 "./textures/Fire-Frame03.xpm"
+//Enemy
+#define Enemy_S_F01 "./textures/Lugia-Frame01.xpm"
+#define Enemy_S_F02 "./textures/Lugia-Frame02.xpm"
+#define Enemy_S_F03 "./textures/Lugia-Frame03.xpm"
 
 typedef struct s_mlx_vars
 {
@@ -62,19 +65,19 @@ typedef struct s_image
 
 typedef struct s_game
 {
-	t_image					tree_s_01;
-	t_image					tree_s_02;
+	t_image					wall_s_01;
+	t_image					wall_s_02;
 	t_image					grass_s_01;
-	t_image					pokeball_s_01;
+	t_image					exit_s_01;
+	t_image					collectible_s_01;
+	t_image					collectible_s_02;
+	t_image					collectible_s_03;
 	t_image					player_bot_s_01;
 	t_image					player_bot_l_02;
 	t_image					player_bot_r_03;
-	t_image 				lugia_s_01;
-	t_image 				lugia_s_02;
-	t_image 				lugia_s_03;
-	t_image					fire_s_01;
-	t_image					fire_s_02;
-	t_image					fire_s_03;
+	t_image 				enemy_s_01;
+	t_image 				enemy_s_02;
+	t_image 				enemy_s_03;
 }			t_game;
 
 typedef struct s_so_long
@@ -106,9 +109,9 @@ int			pre_read(int fd);
 
 //- MLX -//
 void		sprite_init_env(t_so_long *so_long);
-void		sprite_init_player(t_so_long *so_long);
-void		sprite_init_lugia(t_so_long *so_long);
-void		sprite_init_fire(t_so_long *so_long);
+void		sprite_init_enemy(t_so_long *so_long);
+void		sprite_init_player_top_bot(t_so_long *so_long);
+void		sprite_init_exit_and_collectibles(t_so_long *so_long);
 //--- --- --- --- ---//
 
 //- Parsing -//
