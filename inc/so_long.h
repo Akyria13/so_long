@@ -6,7 +6,7 @@
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 18:44:43 by jowagner          #+#    #+#             */
-/*   Updated: 2025/03/11 17:48:42 by jowagner         ###   ########.fr       */
+/*   Updated: 2025/03/13 21:24:46 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,22 @@
 #define Collectible_S_F02 "./textures/Pokeball-02-Frame01.xpm"
 #define Collectible_S_F03 "./textures/Pokeball-03-Frame01.xpm"
 //Player
+//--- Player bot side
 #define Player_S_Bot_F01 "./textures/Sacha-Bot-Frame01.xpm"
 #define Player_S_Bot_L_F02 "./textures/Sacha-Bot-L-Frame02.xpm"
 #define Player_S_Bot_R_F03 "./textures/Sacha-Bot-R-Frame03.xpm"
+//--- Player top side
+#define Player_S_Top_F01 "./textures/Sacha-Top-Frame01.xpm"
+#define Player_S_Top_L_F02 "./textures/Sacha-Top-L-Frame02.xpm"
+#define Player_S_Top_R_F03 "./textures/Sacha-Top-R-Frame03.xpm"
+//--- Player left side
+#define Player_S_Left_F01 "./textures/Sacha-Left-Frame01.xpm"
+#define Player_S_Left_L_F02 "./textures/Sacha-Left-L-Frame02.xpm"
+#define Player_S_Left_R_F03 "./textures/Sacha-Left-R-Frame03.xpm"
+//--- Player right side
+#define Player_S_Right_F01 "./textures/Sacha-Right-Frame01.xpm"
+#define Player_S_Right_L_F02 "./textures/Sacha-Right-L-Frame02.xpm"
+#define Player_S_Right_R_F03 "./textures/Sacha-Right-R-Frame03.xpm"
 //Enemy
 #define Enemy_S_F01 "./textures/Lugia-Frame01.xpm"
 #define Enemy_S_F02 "./textures/Lugia-Frame02.xpm"
@@ -72,9 +85,18 @@ typedef struct s_game
 	t_image					collectible_s_01;
 	t_image					collectible_s_02;
 	t_image					collectible_s_03;
-	t_image					player_bot_s_01;
-	t_image					player_bot_l_02;
-	t_image					player_bot_r_03;
+	t_image					p_bot_s_01;
+	t_image					p_bot_l_02;
+	t_image					p_bot_r_03;
+	t_image					p_top_s_01;
+	t_image					p_top_l_02;
+	t_image					p_top_r_03;
+	t_image					p_left_s_01;
+	t_image					p_left_l_02;
+	t_image					p_left_r_03;
+	t_image					p_right_s_01;
+	t_image					p_right_l_02;
+	t_image					p_right_r_03;
 	t_image 				enemy_s_01;
 	t_image 				enemy_s_02;
 	t_image 				enemy_s_03;
@@ -110,7 +132,8 @@ int			pre_read(int fd);
 //- MLX -//
 void		sprite_init_env(t_so_long *so_long);
 void		sprite_init_enemy(t_so_long *so_long);
-void		sprite_init_player_top_bot(t_so_long *so_long);
+void		sprite_init_player_top_and_bot(t_so_long *so_long);
+void		sprite_init_player_left_and_right(t_so_long *so_long);
 void		sprite_init_exit_and_collectibles(t_so_long *so_long);
 //--- --- --- --- ---//
 

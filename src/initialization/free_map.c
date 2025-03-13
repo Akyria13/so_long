@@ -6,7 +6,7 @@
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 14:52:56 by jowagner          #+#    #+#             */
-/*   Updated: 2025/03/04 17:37:52 by jowagner         ###   ########.fr       */
+/*   Updated: 2025/03/13 21:15:55 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	free_map(char **map)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (map[i] != NULL)

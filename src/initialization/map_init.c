@@ -6,7 +6,7 @@
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 14:53:13 by jowagner          #+#    #+#             */
-/*   Updated: 2025/03/05 15:13:14 by jowagner         ###   ########.fr       */
+/*   Updated: 2025/03/13 21:13:03 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 
 char	**map_init(int count_line, char *filename)
 {
-	char	**map;
+	t_data	data;
 	int		i;
 	int		fd;
 
 	fd = open_file(filename);
-	map = malloc(sizeof(char *) * (count_line + 1));
-	if (map == NULL)
+	data.map = malloc(sizeof(char *) * (count_line + 1));
+	if (data.map == NULL)
 		return (NULL);
-	map[count_line] = NULL;
+	data.map[count_line] = NULL;
 	i = 0;
 	while (i < count_line)
-		map[i++] = get_next_line(fd);
+		data.map[i++] = get_next_line(fd);
 	close_file(fd);
-	return (map);
+	return (data.map);
 }

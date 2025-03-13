@@ -6,7 +6,7 @@
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 18:47:07 by jowagner          #+#    #+#             */
-/*   Updated: 2025/03/11 16:56:17 by jowagner         ###   ########.fr       */
+/*   Updated: 2025/03/13 20:48:01 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,7 @@ static t_so_long	init_so_long_data(void)
 int	main(int ac, char **av)
 {
 	t_so_long	so_long;
-	int			i;
 
-	i = 0;
 	if (ac != 2)
 	{
 		ft_putstr_fd("So_long waits the map.ber as argument, coco.\n", 2);
