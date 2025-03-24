@@ -6,7 +6,7 @@
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 18:44:43 by jowagner          #+#    #+#             */
-/*   Updated: 2025/03/13 21:24:46 by jowagner         ###   ########.fr       */
+/*   Updated: 2025/03/24 17:17:45 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,7 +138,11 @@ void		sprite_init_exit_and_collectibles(t_so_long *so_long);
 //--- --- --- --- ---//
 
 //- Parsing -//
+void		parsing_initialization(t_data *data);
 bool		check_file_extension(char *filepath, char *extension);
+void		remove_newline(t_data data);
+bool		is_map_empty(t_data data);
+bool		is_map_valid_format(t_data data);
 //--- --- --- --- ---//
 
 //- Window -//

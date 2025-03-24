@@ -20,10 +20,13 @@ SRC				:=		src/main.c \
 						src/initialization/pre_read.c \
 						src/mlx/sprite_init.c \
 						src/parsing/check_file_extension.c \
+						src/parsing/is_map_empty.c \
+						src/parsing/is_map_valid_format.c \
+						src/parsing/parsing_initialization.c \
 						src/window/init_so_long.c \
 						src/window/put_tiles.c \
 						src/window/window_size.c \
-						#src/parsing/map_exist.c
+#						src/parsing/remove_newline.c \
 
 ########################################################################################################################
 #                                                      DIRECTORY                                                       #
@@ -74,7 +77,7 @@ fclean : 				clean
 
 re : 					.print_header fclean all $(LIBFT) $(NAME)
 
-debug:
+debug :
 							@printf "Checking source file paths : "
 							@printf "SRC_PATH = $(SRC_PATH)"
 							@ls -la $(SRC_PATH)

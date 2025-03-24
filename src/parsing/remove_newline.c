@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   close_file.c                                       :+:      :+:    :+:   */
+/*   remove_newline.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/05 15:02:24 by jowagner          #+#    #+#             */
-/*   Updated: 2025/03/24 14:45:02 by jowagner         ###   ########.fr       */
+/*   Created: 2025/03/24 17:09:46 by jowagner          #+#    #+#             */
+/*   Updated: 2025/03/24 17:16:43 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/so_long.h"
 
-int	close_file(int fd)
+void	remove_newline(t_data data)
 {
-	int	result;
+	int	i;
+	int	j;
 
-	result = close(fd);
-	if (result == -1)
+	i = 0;
+	while (data.map[i])
 	{
-		perror("Error in close_file : ");
-		exit(1);
-		return (result);
+		j = 0;
+		while (data.map[i][j])
+		{
+			if (data.map[i][j] == '\n')
+				data.map[i][j] = '\0';
+			j++;
+		}
+		i++;
 	}
-	else
-		return (result);
 }

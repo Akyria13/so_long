@@ -6,7 +6,7 @@
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 19:05:45 by jowagner          #+#    #+#             */
-/*   Updated: 2025/03/06 16:19:11 by jowagner         ###   ########.fr       */
+/*   Updated: 2025/03/24 16:05:55 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,5 @@ void	initialization(char *filename, t_data *data)
 	if (!data->map)
 		ft_putstr_fd("Error initializing map.\n", 2);
 	window_size(data);
+	parsing_initialization(data);
 }

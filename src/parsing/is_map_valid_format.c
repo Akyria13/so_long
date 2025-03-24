@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   close_file.c                                       :+:      :+:    :+:   */
+/*   is_map_valid_format.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/05 15:02:24 by jowagner          #+#    #+#             */
-/*   Updated: 2025/03/24 14:45:02 by jowagner         ###   ########.fr       */
+/*   Created: 2025/03/24 16:17:34 by jowagner          #+#    #+#             */
+/*   Updated: 2025/03/24 17:38:09 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/so_long.h"
 
-int	close_file(int fd)
+bool	is_map_valid_format(t_data data)
 {
-	int	result;
+	int	i;
+	int	j;
 
-	result = close(fd);
-	if (result == -1)
+	if (data.map == NULL || data.map[0] == NULL)
+		return (false);
+	i = 0;
+	while (data.map[i] != NULL)
 	{
-		perror("Error in close_file : ");
-		exit(1);
-		return (result);
+		j = 0;
+		while (data.map[i][j] != '\0')
+		{
+			if (data.map[i][j] == ' ')
+				return (false);
+			j++;
+		}
+		i++;
 	}
-	else
-		return (result);
+	return (true);
 }
