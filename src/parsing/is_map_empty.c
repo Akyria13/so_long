@@ -6,7 +6,7 @@
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 15:25:46 by jowagner          #+#    #+#             */
-/*   Updated: 2025/03/24 16:21:56 by jowagner         ###   ########.fr       */
+/*   Updated: 2025/03/25 18:42:43 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,9 @@
 
 bool	is_map_empty(t_data data)
 {
-	int	i;
-	int	j;
+	size_t	i;
+	size_t	j;
 
-	if (data.map == NULL || data.map[0] == NULL)
-		return (true);
 	i = 0;
 	while (data.map[i] != NULL)
 	{
@@ -26,10 +24,10 @@ bool	is_map_empty(t_data data)
 		while (data.map[i][j] != '\0')
 		{
 			if (data.map[i][j] != ' ' && data.map[i][j] != '\n')
-				return (false);
+				return (true);
 			j++;
 		}
 		i++;
 	}
-	return (true);
+	return (false);
 }

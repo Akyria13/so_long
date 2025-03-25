@@ -6,7 +6,7 @@
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 18:44:43 by jowagner          #+#    #+#             */
-/*   Updated: 2025/03/24 17:17:45 by jowagner         ###   ########.fr       */
+/*   Updated: 2025/03/25 18:45:58 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,7 @@ typedef struct s_so_long
 	t_mlx_vars			mlx_v;
 	t_data				data;
 	t_game				game;
+	int					nbr_collectibles;
 }			t_so_long;
 
 // typedef struct s_map_requirements
@@ -138,11 +139,13 @@ void		sprite_init_exit_and_collectibles(t_so_long *so_long);
 //--- --- --- --- ---//
 
 //- Parsing -//
-void		parsing_initialization(t_data *data);
 bool		check_file_extension(char *filepath, char *extension);
-void		remove_newline(t_data data);
 bool		is_map_empty(t_data data);
+// bool		is_map_have_wall(t_data data);
+bool		is_map_rectangular(t_data data);
 bool		is_map_valid_format(t_data data);
+void		parsing_initialization(t_data *data);
+void		remove_newline(t_data data);
 //--- --- --- --- ---//
 
 //- Window -//

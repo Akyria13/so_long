@@ -6,7 +6,7 @@
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 18:47:07 by jowagner          #+#    #+#             */
-/*   Updated: 2025/03/13 20:48:01 by jowagner         ###   ########.fr       */
+/*   Updated: 2025/03/25 18:27:14 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,8 @@ int	main(int ac, char **av)
 	}
 	if (ac == 2)
 	{
+		so_long = init_so_long_data();
 		initialization(av[1], &so_long.data);
-		init_so_long_data();
 		init_so_long(&so_long);
 	}
 	return (0);

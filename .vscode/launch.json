@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/home/jowagner/Documents/so_long/src",
-      "program": "/home/jowagner/Documents/so_long/src/build/Debug/outDebug",
+      "cwd": "/home/jowagner/Documents/so_long/src/parsing",
+      "program": "/home/jowagner/Documents/so_long/src/parsing/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

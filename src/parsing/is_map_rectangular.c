@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   remove_newline.c                                   :+:      :+:    :+:   */
+/*   is_map_rectangular.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/24 17:09:46 by jowagner          #+#    #+#             */
-/*   Updated: 2025/03/25 18:03:22 by jowagner         ###   ########.fr       */
+/*   Created: 2025/03/25 17:29:17 by jowagner          #+#    #+#             */
+/*   Updated: 2025/03/25 18:40:58 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/so_long.h"
 
-void	remove_newline(t_data data)
+bool	is_map_rectangular(t_data data)
 {
 	size_t	i;
-	size_t	len;
+	size_t	line_len;
 
-	if (data.map == NULL)
-		return ;
 	i = 0;
-	while (data.map[i])
+	line_len = ft_strlen(data.map[0]);
+	while (data.map[i] != NULL)
 	{
-		printf("Remove \\n\n");
-		len = ft_strlen(data.map[i]);
-		if (len > 0 && data.map[i][len - 1] == '\n')
-			data.map[i][len - 1] = '\0';
+		if (line_len != ft_strlen(data.map[i]))
+			return (false);
 		i++;
 	}
+	return (true);
 }

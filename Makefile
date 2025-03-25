@@ -21,12 +21,14 @@ SRC				:=		src/main.c \
 						src/mlx/sprite_init.c \
 						src/parsing/check_file_extension.c \
 						src/parsing/is_map_empty.c \
+						src/parsing/is_map_have_wall.c \
+						src/parsing/is_map_rectangular.c \
 						src/parsing/is_map_valid_format.c \
 						src/parsing/parsing_initialization.c \
+						src/parsing/remove_newline.c \
 						src/window/init_so_long.c \
 						src/window/put_tiles.c \
 						src/window/window_size.c \
-#						src/parsing/remove_newline.c \
 
 ########################################################################################################################
 #                                                      DIRECTORY                                                       #
