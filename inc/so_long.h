@@ -6,7 +6,7 @@
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 18:44:43 by jowagner          #+#    #+#             */
-/*   Updated: 2025/03/25 18:45:58 by jowagner         ###   ########.fr       */
+/*   Updated: 2025/03/29 20:15:26 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,63 +60,77 @@ typedef struct s_mlx_vars
 {
 	void				*mlx;
 	void				*win;
-}			t_mlx_vars;
+}						t_mlx_vars;
 
 typedef struct s_data
 {
 	char				**map;
 	int					width_map;
 	int					height_map;
-}			t_data;
+}						t_data;
 
 typedef struct s_image
 {
 	void				*ptr;
 	int					width;
 	int					height;
-}			t_image;
+}						t_image;
+
+typedef struct s_coordinate
+{
+	int					x;
+	int					y;
+}						t_coordinate;
+
+typedef struct s_player
+{
+	t_coordinate		coords;
+	int					mooves;
+}						t_player;
+
+typedef struct s_map_requirements
+{
+	int					nbr_collectible;
+	int					nbr_items;
+	int					nbr_exit;
+	int					nbr_player;
+	int					nbr_spawn;
+}						t_map_reqhttps://github.com/Akyria13/so_long/commit/1009cc6549ad85fbadfdcdb30b4274f9b4a6d5bbuirements;
 
 typedef struct s_game
 {
-	t_image					wall_s_01;
-	t_image					wall_s_02;
-	t_image					grass_s_01;
-	t_image					exit_s_01;
-	t_image					collectible_s_01;
-	t_image					collectible_s_02;
-	t_image					collectible_s_03;
-	t_image					p_bot_s_01;
-	t_image					p_bot_l_02;
-	t_image					p_bot_r_03;
-	t_image					p_top_s_01;
-	t_image					p_top_l_02;
-	t_image					p_top_r_03;
-	t_image					p_left_s_01;
-	t_image					p_left_l_02;
-	t_image					p_left_r_03;
-	t_image					p_right_s_01;
-	t_image					p_right_l_02;
-	t_image					p_right_r_03;
-	t_image 				enemy_s_01;
-	t_image 				enemy_s_02;
-	t_image 				enemy_s_03;
-}			t_game;
+	t_image				wall_s_01;
+	t_image				wall_s_02;
+	t_image				grass_s_01;
+	t_image				exit_s_01;
+	t_image				collectible_s_01;
+	t_image				collectible_s_02;
+	t_image				collectible_s_03;
+	t_image				p_bot_s_01;
+	t_image				p_bot_l_02;
+	t_image				p_bot_r_03;
+	t_image				p_top_s_01;
+	t_image				p_top_l_02;
+	t_image				p_top_r_03;
+	t_image				p_left_s_01;
+	t_image				p_left_l_02;
+	t_image				p_left_r_03;
+	t_image				p_right_s_01;
+	t_image				p_right_l_02;
+	t_image				p_right_r_03;
+	t_image 			enemy_s_01;
+	t_image 			enemy_s_02;
+	t_image 			enemy_s_03;
+}						t_game;
 
 typedef struct s_so_long
 {
 	t_mlx_vars			mlx_v;
 	t_data				data;
 	t_game				game;
-	int					nbr_collectibles;
-}			t_so_long;
+	t_map_requirements	map_r;
+}						t_so_long;
 
-// typedef struct s_map_requirements
-// {
-// 	int		nbr_collectible;
-// 	int		nbr_exit;
-// 	int		nbr_player;
-// 	bool is_recta
-// }			t_map_requirements;
 
 //--- The main function ---//
 
@@ -141,7 +155,7 @@ void		sprite_init_exit_and_collectibles(t_so_long *so_long);
 //- Parsing -//
 bool		check_file_extension(char *filepath, char *extension);
 bool		is_map_empty(t_data data);
-// bool		is_map_have_wall(t_data data);
+bool		is_map_have_wall(t_data data);
 bool		is_map_rectangular(t_data data);
 bool		is_map_valid_format(t_data data);
 void		parsing_initialization(t_data *data);

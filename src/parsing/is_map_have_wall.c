@@ -6,13 +6,47 @@
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 18:11:11 by jowagner          #+#    #+#             */
-/*   Updated: 2025/03/25 18:27:36 by jowagner         ###   ########.fr       */
+/*   Updated: 2025/03/29 19:14:15 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "../../inc/so_long.h"
+#include "../../inc/so_long.h"
 
-// bool	is_map_have_wall(t_data data)
-// {
-// 	size_t	i;
-// }
+static bool	is_vertical_walls_valid(t_data data)
+{
+	size_t	i;
+
+	i = 0;
+	while (data.map[i] != NULL)
+	{
+		if (data.map[i][0] != '1' || data.map[i][ft_strlen(data.map[i])
+			- 1] != '1')
+			return (false);
+		i++;
+	}
+	return (true);
+}
+
+static bool	is_horizontal_walls_valid(t_data data)
+{
+	size_t	i;
+	size_t	last_row;
+
+	last_row = 0;
+	while (data.map[last_row] != NULL)
+		last_row++;
+	last_row--;
+	i = 0;
+	while (data.map[0][i] != '\0')
+	{
+		if (data.map[0][i] != '1' || data.map[last_row][i] != '1')
+			return (false);
+		i++;
+	}
+	return (true);
+}
+
+bool	is_map_have_wall(t_data data)
+{
+	return (is_vertical_walls_valid(data) && is_horizontal_walls_valid(data));
+}

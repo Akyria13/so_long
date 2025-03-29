@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   remove_newline.c                                   :+:      :+:    :+:   */
+/*   close_window.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/24 17:09:46 by jowagner          #+#    #+#             */
-/*   Updated: 2025/03/29 17:52:21 by jowagner         ###   ########.fr       */
+/*   Created: 2025/03/29 20:05:25 by jowagner          #+#    #+#             */
+/*   Updated: 2025/03/29 20:13:54 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/so_long.h"
 
-void	remove_newline(t_data data)
+int	close_window(t_so_long *so_long)
 {
-	size_t	i;
-	size_t	len;
-
-	if (data.map == NULL)
-		return ;
-	i = 0;
-	while (data.map[i])
-	{
-		len = ft_strlen(data.map[i]);
-		if (len > 0 && data.map[i][len - 1] == '\n')
-			data.map[i][len - 1] = '\0';
-		i++;
-	}
+	mlx_destroy_image(so_long->mlx_v.mlx, so_long->game.wall_s_01.ptr);
+	mlx_destroy_image(so_long->mlx_v.mlx, so_long->game.grass_s_01.ptr);
+	mlx_destroy_window(so_long->mlx_v.mlx, so_long->mlx_v.win);
+	mlx_destroy_display(so_long->mlx_v.mlx);
+	free(so_long->mlx_v.mlx);
+	free_map(so_long->data.map);
+	exit(0);
+	return (0);
 }
