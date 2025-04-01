@@ -7,7 +7,7 @@ NAME			:= 		so_long
 
 AR				:= 		ar -rcs
 CC				:= 		cc
-CFLAGS			:= 		-Wall -Wextra -Werror -MD -MP -g3
+CFLAGS			:= 		-Wall -Wextra -Werror -MD -MP -g3 -Iinc/
 MLX_FLAGS		:=		-lXext -lX11 -lm -lz
 
 
@@ -26,6 +26,7 @@ SRC				:=		src/main.c \
 						src/parsing/is_map_valid_format.c \
 						src/parsing/parsing_initialization.c \
 						src/parsing/remove_newline.c \
+						src/window/close_window.c \
 						src/window/init_so_long.c \
 						src/window/put_tiles.c \
 						src/window/window_size.c \

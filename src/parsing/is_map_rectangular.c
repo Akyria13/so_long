@@ -6,11 +6,11 @@
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 17:29:17 by jowagner          #+#    #+#             */
-/*   Updated: 2025/03/25 18:40:58 by jowagner         ###   ########.fr       */
+/*   Updated: 2025/04/01 19:02:38 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/so_long.h"
+#include "so_long.h"
 
 bool	is_map_rectangular(t_data data)
 {

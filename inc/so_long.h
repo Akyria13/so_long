@@ -6,7 +6,7 @@
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 18:44:43 by jowagner          #+#    #+#             */
-/*   Updated: 2025/03/29 20:15:26 by jowagner         ###   ########.fr       */
+/*   Updated: 2025/04/01 17:13:51 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include "../libft/libft.h"
 # include "../minilibx-linux/mlx.h"
 # include "../minilibx-linux/mlx_int.h"
-# include <math.h>
 # include <stdbool.h>
 # include <stdio.h>
 # include <stdlib.h>
@@ -28,7 +27,6 @@
 #define SIZE_S 64
 //Environment
 #define Wall_S_F01 "./textures/Tree-Frame01.xpm"
-#define Wall_S_F02 "./textures/Tree-Frame02.xpm"
 #define Grass_S_F01 "./textures/Grass-Frame01.xpm"
 #define Exit_S_01 "./textures/Well-Frame01.xpm"
 #define Collectible_S_F01 "./textures/Pokeball-01-Frame01.xpm"
@@ -95,12 +93,11 @@ typedef struct s_map_requirements
 	int					nbr_exit;
 	int					nbr_player;
 	int					nbr_spawn;
-}						t_map_reqhttps://github.com/Akyria13/so_long/commit/1009cc6549ad85fbadfdcdb30b4274f9b4a6d5bbuirements;
+}						t_map_requirements;
 
 typedef struct s_game
 {
 	t_image				wall_s_01;
-	t_image				wall_s_02;
 	t_image				grass_s_01;
 	t_image				exit_s_01;
 	t_image				collectible_s_01;
@@ -138,7 +135,7 @@ typedef struct s_so_long
 //- Initialization -//
 int			close_file(int fd);
 void		free_map(char **map);
-void		initialization(char *filename, t_data *data);
+void		initialization(char *filename, t_so_long *so_long);
 char		**map_init(int count_line, char *filename);
 int			open_file(char *filename);
 int			pre_read(int fd);
@@ -158,11 +155,12 @@ bool		is_map_empty(t_data data);
 bool		is_map_have_wall(t_data data);
 bool		is_map_rectangular(t_data data);
 bool		is_map_valid_format(t_data data);
-void		parsing_initialization(t_data *data);
+void		parsing_initialization(t_so_long *so_long);
 void		remove_newline(t_data data);
 //--- --- --- --- ---//
 
 //- Window -//
+int			close_window(t_so_long *so_long);
 int			init_so_long(t_so_long *so_long);
 void		window_size(t_data *data);
 //--- --- --- --- ---//

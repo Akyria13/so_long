@@ -6,11 +6,11 @@
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 14:52:56 by jowagner          #+#    #+#             */
-/*   Updated: 2025/03/13 21:15:55 by jowagner         ###   ########.fr       */
+/*   Updated: 2025/04/01 19:03:01 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/so_long.h"
+#include "so_long.h"
 
 void	free_map(char **map)
 {

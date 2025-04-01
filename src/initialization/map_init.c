@@ -6,11 +6,11 @@
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 14:53:13 by jowagner          #+#    #+#             */
-/*   Updated: 2025/03/13 21:13:03 by jowagner         ###   ########.fr       */
+/*   Updated: 2025/04/01 19:02:15 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/so_long.h"
+#include "so_long.h"
 
 char	**map_init(int count_line, char *filename)
 {
@@ -26,6 +26,7 @@ char	**map_init(int count_line, char *filename)
 	i = 0;
 	while (i < count_line)
 		data.map[i++] = get_next_line(fd);
+	get_next_line(fd);
 	close_file(fd);
 	return (data.map);
 }

@@ -6,11 +6,11 @@
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 17:09:46 by jowagner          #+#    #+#             */
-/*   Updated: 2025/03/29 17:52:21 by jowagner         ###   ########.fr       */
+/*   Updated: 2025/04/01 19:03:06 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/so_long.h"
+#include "so_long.h"
 
 void	remove_newline(t_data data)
 {

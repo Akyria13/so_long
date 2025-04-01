@@ -6,11 +6,11 @@
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 18:47:07 by jowagner          #+#    #+#             */
-/*   Updated: 2025/03/25 18:27:14 by jowagner         ###   ########.fr       */
+/*   Updated: 2025/04/01 18:36:13 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/so_long.h"
+#include "so_long.h"
 
 // int	key_hook(int keycode, t_data *data)
 // // map[2][5] Check if map[1][5] is a wall for valid input
@@ -32,15 +32,15 @@
 // 	exit(1);
 // }
 
-static t_so_long	init_so_long_data(void)
-{
-	t_so_long	so_long;
+// static t_so_long	init_so_long_data(void)
+// {
+// 	t_so_long	so_long;
 
-	so_long.data.map = NULL;
-	so_long.data.height_map = 0;
-	so_long.data.width_map = 0;
-	return (so_long);
-}
+// 	so_long.data.map = NULL;
+// 	so_long.data.height_map = 0;
+// 	so_long.data.width_map = 0;
+// 	return (so_long);
+// }
 
 int	main(int ac, char **av)
 {
@@ -53,8 +53,9 @@ int	main(int ac, char **av)
 	}
 	if (ac == 2)
 	{
-		so_long = init_so_long_data();
-		initialization(av[1], &so_long.data);
+		ft_bzero(&so_long, sizeof(t_so_long));
+		// so_long = init_so_long_data();
+		initialization(av[1], &so_long);
 		init_so_long(&so_long);
 	}
 	return (0);

@@ -6,11 +6,11 @@
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 15:02:24 by jowagner          #+#    #+#             */
-/*   Updated: 2025/03/24 14:45:02 by jowagner         ###   ########.fr       */
+/*   Updated: 2025/04/01 19:02:06 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/so_long.h"
+#include "so_long.h"
 
 int	close_file(int fd)
 {

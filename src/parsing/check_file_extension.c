@@ -6,11 +6,11 @@
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 16:53:05 by jowagner          #+#    #+#             */
-/*   Updated: 2025/03/06 16:14:49 by jowagner         ###   ########.fr       */
+/*   Updated: 2025/04/01 19:02:29 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/so_long.h"
+#include "so_long.h"
 
 bool	check_file_extension(char *filepath, char *extension)
 {

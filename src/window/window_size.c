@@ -6,11 +6,11 @@
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 18:21:55 by jowagner          #+#    #+#             */
-/*   Updated: 2025/03/29 19:17:10 by jowagner         ###   ########.fr       */
+/*   Updated: 2025/04/01 18:36:17 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/so_long.h"
+#include "so_long.h"
 
 void	window_size(t_data *data)
 {

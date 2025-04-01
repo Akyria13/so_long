@@ -6,11 +6,11 @@
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 18:11:11 by jowagner          #+#    #+#             */
-/*   Updated: 2025/03/29 19:14:15 by jowagner         ###   ########.fr       */
+/*   Updated: 2025/04/01 19:02:35 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/so_long.h"
+#include "so_long.h"
 
 static bool	is_vertical_walls_valid(t_data data)
 {

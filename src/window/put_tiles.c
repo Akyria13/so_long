@@ -6,11 +6,11 @@
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 14:43:17 by jowagner          #+#    #+#             */
-/*   Updated: 2025/03/06 15:12:32 by jowagner         ###   ########.fr       */
+/*   Updated: 2025/04/01 19:02:52 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/so_long.h"
+#include "so_long.h"
 
 // void	put_tiles(t_so_long data, )
 // {
