@@ -26,6 +26,7 @@ SRC				:=		src/main.c \
 						src/parsing/is_map_valid_format.c \
 						src/parsing/parsing_initialization.c \
 						src/parsing/remove_newline.c \
+						src/player/player_moove.c \
 						src/window/close_window.c \
 						src/window/init_so_long.c \
 						src/window/put_tiles.c \
@@ -120,6 +121,7 @@ $(OBJ_DIR)			:
 							@mkdir -p $(OBJ_DIR)initialization/
 							@mkdir -p $(OBJ_DIR)mlx/
 							@mkdir -p $(OBJ_DIR)parsing/
+							@mkdir -p $(OBJ_DIR)player/
 							@mkdir -p $(OBJ_DIR)window/
 							@printf "\n"
 
