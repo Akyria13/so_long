@@ -6,7 +6,7 @@
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 18:44:43 by jowagner          #+#    #+#             */
-/*   Updated: 2025/04/03 19:58:23 by jowagner         ###   ########.fr       */
+/*   Updated: 2025/04/04 21:59:58 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 # define Wall_S_F01 "./textures/Tree-Frame01.xpm"
 # define Grass_S_F01 "./textures/Grass-Frame01.xpm"
 # define Exit_S_01 "./textures/Well-Frame01.xpm"
+# define Player_on_Exit_S_01 "./textures/Player-on-Well-Frame01.xpm"
 # define Collectible_S_F01 "./textures/Pokeball-01-Frame01.xpm"
 # define Collectible_S_F02 "./textures/Pokeball-02-Frame01.xpm"
 # define Collectible_S_F03 "./textures/Pokeball-03-Frame01.xpm"
@@ -90,9 +91,8 @@ typedef struct s_map_requirements
 {
 	int					nbr_collectible;
 	int					nbr_items;
-	int					nbr_exit;
 	int					nbr_player;
-	int					nbr_spawn;
+	bool				player_on_exit;
 }						t_map_requirements;
 
 typedef struct s_game
@@ -115,6 +115,7 @@ typedef struct s_game
 	t_image				p_right_s_01;
 	t_image				p_right_l_02;
 	t_image				p_right_r_03;
+	t_image				p_on_exit_s_01;
 	t_image				enemy_s_01;
 	t_image				enemy_s_02;
 	t_image				enemy_s_03;
@@ -127,6 +128,7 @@ typedef struct s_so_long
 	t_game				game;
 	t_map_requirements	map_r;
 	t_player			player;
+	t_coordinate		exit_coords;
 }						t_so_long;
 
 //--- The main function ---//
@@ -162,6 +164,9 @@ void					remove_newline(t_data data);
 //- Player -//
 void					move_player(t_so_long *so_long, int dx, int dy);
 int						key_hook(int keycode, t_so_long *so_long);
+// TEST
+void					init_player_position(t_so_long *so_long);
+void					count_map_elements(t_so_long *so_long);
 //--- --- --- --- ---//
 
 //- Window -//

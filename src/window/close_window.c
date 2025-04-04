@@ -6,7 +6,7 @@
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 20:05:25 by jowagner          #+#    #+#             */
-/*   Updated: 2025/04/03 18:35:35 by jowagner         ###   ########.fr       */
+/*   Updated: 2025/04/04 22:00:35 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ static int	close_window_image(t_so_long *so_long)
 	mlx_destroy_image(so_long->mlx_v.mlx, so_long->game.p_right_l_02.ptr);
 	mlx_destroy_image(so_long->mlx_v.mlx, so_long->game.p_right_r_03.ptr);
 	mlx_destroy_image(so_long->mlx_v.mlx, so_long->game.exit_s_01.ptr);
+	mlx_destroy_image(so_long->mlx_v.mlx, so_long->game.p_on_exit_s_01.ptr);
 	mlx_destroy_image(so_long->mlx_v.mlx, so_long->game.collectible_s_01.ptr);
 	mlx_destroy_image(so_long->mlx_v.mlx, so_long->game.collectible_s_02.ptr);
 	mlx_destroy_image(so_long->mlx_v.mlx, so_long->game.collectible_s_03.ptr);

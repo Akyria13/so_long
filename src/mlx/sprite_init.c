@@ -6,7 +6,7 @@
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 16:32:40 by jowagner          #+#    #+#             */
-/*   Updated: 2025/04/03 18:16:44 by jowagner         ###   ########.fr       */
+/*   Updated: 2025/04/04 22:00:56 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,9 @@ void	sprite_init_exit_and_collectibles(t_so_long *so_long)
 	so_long->game.exit_s_01.ptr = mlx_xpm_file_to_image(so_long->mlx_v.mlx,
 			Exit_S_01, &so_long->game.exit_s_01.width,
 			&so_long->game.exit_s_01.height);
+	so_long->game.p_on_exit_s_01.ptr = mlx_xpm_file_to_image(so_long->mlx_v.mlx,
+			Player_on_Exit_S_01, &so_long->game.p_on_exit_s_01.width,
+			&so_long->game.p_on_exit_s_01.height);
 	so_long->game.collectible_s_01.ptr = mlx_xpm_file_to_image(so_long->mlx_v.mlx,
 			Collectible_S_F01, &so_long->game.collectible_s_01.width,
 			&so_long->game.collectible_s_01.height);
@@ -121,7 +124,8 @@ void	sprite_init_exit_and_collectibles(t_so_long *so_long)
 			&so_long->game.collectible_s_03.height);
 	if (!so_long->game.exit_s_01.ptr || !so_long->game.collectible_s_01.ptr
 		|| !so_long->game.collectible_s_02.ptr
-		|| !so_long->game.collectible_s_03.ptr)
+		|| !so_long->game.collectible_s_03.ptr
+		|| !so_long->game.p_on_exit_s_01.ptr)
 	{
 		ft_putstr_fd("Error.\nSomething wrong with images (#Exit or collectibles).\n",
 			2);
