@@ -6,7 +6,7 @@
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 18:44:43 by jowagner          #+#    #+#             */
-/*   Updated: 2025/04/04 21:59:58 by jowagner         ###   ########.fr       */
+/*   Updated: 2025/04/07 19:40:57 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,6 +129,7 @@ typedef struct s_so_long
 	t_map_requirements	map_r;
 	t_player			player;
 	t_coordinate		exit_coords;
+	char				*map_file;
 }						t_so_long;
 
 //--- The main function ---//
@@ -167,6 +168,7 @@ int						key_hook(int keycode, t_so_long *so_long);
 // TEST
 void					init_player_position(t_so_long *so_long);
 void					count_map_elements(t_so_long *so_long);
+void					reset_game(t_so_long *so_long);
 //--- --- --- --- ---//
 
 //- Window -//

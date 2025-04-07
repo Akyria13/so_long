@@ -6,7 +6,7 @@
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 18:47:07 by jowagner          #+#    #+#             */
-/*   Updated: 2025/04/03 18:49:55 by jowagner         ###   ########.fr       */
+/*   Updated: 2025/04/07 19:30:51 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int	main(int ac, char **av)
 	{
 		ft_bzero(&so_long, sizeof(t_so_long));
 		initialization(av[1], &so_long);
+		so_long.map_file = ft_strdup(av[1]);
 		init_so_long(&so_long);
 	}
 	return (0);

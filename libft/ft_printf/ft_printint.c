@@ -6,7 +6,7 @@
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 15:00:58 by jowagner          #+#    #+#             */
-/*   Updated: 2025/01/20 18:58:31 by jowagner         ###   ########.fr       */
+/*   Updated: 2025/04/07 18:55:18 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static int	ft_numlen(int n)
  * @return A pointer to the newly allocated string representing the integer,
  * or NULL if memory allocation fails.
  */
-char	*ft_itoa(int n)
+char	*ft_itoa_printf(int n)
 {
 	char			*str;
 	int				len;
@@ -70,7 +70,7 @@ int	ft_print_itoa(int nbr)
 
 	count = 0;
 	i = 0;
-	str = ft_itoa(nbr);
+	str = ft_itoa_printf(nbr);
 	if (!str)
 		return (0);
 	while (str && str[i])

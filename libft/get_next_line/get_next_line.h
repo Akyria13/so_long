@@ -6,7 +6,7 @@
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 12:57:14 by jowagner          #+#    #+#             */
-/*   Updated: 2025/02/24 23:53:32 by jowagner         ###   ########.fr       */
+/*   Updated: 2025/04/07 18:56:11 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ size_t	ft_strlen(const char *str);
 char	*ft_strchr(const char *s, int c);
 
 // Concatenates two strings into a newly allocated string.
-char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strnjoin(char const *s1, char const *s2);
 
 // Frees the memory pointed to by two strings.
 void	free_strs(char *str1, char *str2);
