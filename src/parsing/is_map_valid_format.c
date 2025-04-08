@@ -6,7 +6,7 @@
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 16:17:34 by jowagner          #+#    #+#             */
-/*   Updated: 2025/04/01 19:02:41 by jowagner         ###   ########.fr       */
+/*   Updated: 2025/04/08 16:20:39 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ bool	is_map_valid_format(t_data data)
 			if (data.map[i][j] != '1' && data.map[i][j] != '0'
 				&& data.map[i][j] != 'X' && data.map[i][j] != 'E'
 				&& data.map[i][j] != 'P' && data.map[i][j] != 'C'
-				&& data.map[i][j] != 'c')
+				&& data.map[i][j] != 'c' && data.map[i][j] != 'M')
 				return (false);
 			j++;
 		}

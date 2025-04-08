@@ -6,7 +6,7 @@
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 18:44:43 by jowagner          #+#    #+#             */
-/*   Updated: 2025/04/07 19:40:57 by jowagner         ###   ########.fr       */
+/*   Updated: 2025/04/08 16:48:56 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 # include <unistd.h>
 
 # define SIZE_S 64
+# define RESET "\033[H\033[J"
 // Environment
 # define Wall_S_F01 "./textures/Tree-Frame01.xpm"
 # define Grass_S_F01 "./textures/Grass-Frame01.xpm"
@@ -121,6 +122,14 @@ typedef struct s_game
 	t_image				enemy_s_03;
 }						t_game;
 
+typedef struct s_animation
+{
+	int					frame_counter;
+	int					current_frame;
+	int					enemy_frame;
+	int					direction;
+}						t_animation;
+
 typedef struct s_so_long
 {
 	t_mlx_vars			mlx_v;
@@ -130,6 +139,7 @@ typedef struct s_so_long
 	t_player			player;
 	t_coordinate		exit_coords;
 	char				*map_file;
+	t_animation			animation;
 }						t_so_long;
 
 //--- The main function ---//
@@ -163,12 +173,39 @@ void					remove_newline(t_data data);
 //--- --- --- --- ---//
 
 //- Player -//
-void					move_player(t_so_long *so_long, int dx, int dy);
-int						key_hook(int keycode, t_so_long *so_long);
-// TEST
+//- Player -> Display information -//
+void					display_moves_count(t_so_long *so_long);
+void					display_items_count(t_so_long *so_long);
+void					display_game_info(t_so_long *so_long);
+//- Player -> Element position -//
+void					update_player_direction(t_so_long *so_long, int dx,
+							int dy);
+char					get_old_position_char(t_so_long *so_long);
+void					check_exit_position(t_so_long *so_long, int dx, int dy);
+void					update_map_and_position(t_so_long *so_long, int new_x,
+							int new_y, char old_position_char);
+//- Player -> Initalization -//
 void					init_player_position(t_so_long *so_long);
 void					count_map_elements(t_so_long *so_long);
+//- Player -> Rendering environment -//
+void					render_wall_and_grass(t_so_long *so_long, int x, int y,
+							char tile);
+void					render_exit(t_so_long *so_long, int x, int y);
+void					render_enemy(t_so_long *so_long, int x, int y);
+void					render_collectibles(t_so_long *so_long, int x, int y,
+							char tile);
+int						animation_loop(t_so_long *so_long);
+//- Player -> Rendering player-//
+void					render_player_bottom(t_so_long *so_long, int x, int y);
+void					render_player_top(t_so_long *so_long, int x, int y);
+void					render_player_left(t_so_long *so_long, int x, int y);
+void					render_player_right(t_so_long *so_long, int x, int y);
+void					render_player(t_so_long *so_long, int x, int y);
+//- Player -> Player mooves -//
 void					reset_game(t_so_long *so_long);
+void					move_player(t_so_long *so_long, int dx, int dy);
+int						key_hook(int keycode, t_so_long *so_long);
+// Tiles
 //--- --- --- --- ---//
 
 //- Window -//

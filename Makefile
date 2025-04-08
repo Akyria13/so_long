@@ -26,7 +26,12 @@ SRC				:=		src/main.c \
 						src/parsing/is_map_valid_format.c \
 						src/parsing/parsing_initialization.c \
 						src/parsing/remove_newline.c \
+						src/player/display_count.c \
+						src/player/element_position.c \
+						src/player/init_element.c \
 						src/player/player_moove.c \
+						src/player/render_player.c \
+						src/player/render_env.c \
 						src/window/close_window.c \
 						src/window/init_so_long.c \
 						src/window/put_tiles.c \
