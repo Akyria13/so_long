@@ -6,7 +6,7 @@
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 20:05:25 by jowagner          #+#    #+#             */
-/*   Updated: 2025/04/07 19:42:40 by jowagner         ###   ########.fr       */
+/*   Updated: 2025/04/10 18:37:07 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	close_window(t_so_long *so_long)
 	if (so_long->map_file)
 		free(so_long->map_file);
 	free(so_long->mlx_v.mlx);
-	free_map(so_long->data.map);
+	free_map(so_long->data.map, false);
 	exit(0);
 	return (0);
 }

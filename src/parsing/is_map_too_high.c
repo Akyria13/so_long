@@ -1,31 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pre_read.c                                         :+:      :+:    :+:   */
+/*   is_map_too_high.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/27 14:50:13 by jowagner          #+#    #+#             */
-/*   Updated: 2025/04/01 19:03:02 by jowagner         ###   ########.fr       */
+/*   Created: 2025/04/10 18:51:31 by jowagner          #+#    #+#             */
+/*   Updated: 2025/04/10 19:15:31 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	pre_read(int fd)
+bool	is_map_too_high(t_data data)
 {
-	char	*line;
-	int		count_line;
+	size_t	i;
 
-	count_line = 0;
-	line = "";
-	while (line != NULL)
+	i = 0;
+	while (data.map[i] != NULL)
+		i++;
+	if (i > 30)
 	{
-		line = get_next_line(fd);
-		if (line)
-			count_line++;
-		free(line);
+		ft_putstr_fd("Error.\nMap is too high (more than 30 lines).\n", 2);
+		return (true);
 	}
-	close_file(fd);
-	return (count_line);
+	i = 0;
+	while (data.map[i] != NULL)
+	{
+		if (ft_strlen(data.map[i]) > 40)
+		{
+			ft_putstr_fd("Error.\nMap is too long (more than 40 char).\n", 2);
+			return (true);
+		}
+		i++;
+	}
+	return (false);
 }

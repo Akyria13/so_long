@@ -6,7 +6,7 @@
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 16:26:19 by jowagner          #+#    #+#             */
-/*   Updated: 2025/04/08 16:32:10 by jowagner         ###   ########.fr       */
+/*   Updated: 2025/04/09 14:48:28 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	display_moves_count(t_so_long *so_long)
 	display_str = ft_strjoin("Mooves : ", moves_str);
 	mlx_put_image_to_window(so_long->mlx_v.mlx, so_long->mlx_v.win,
 		so_long->game.wall_s_01.ptr, 0, 0);
-	mlx_string_put(so_long->mlx_v.mlx, so_long->mlx_v.win, 10, 20, 0xFFFFFF,
+	mlx_string_put(so_long->mlx_v.mlx, so_long->mlx_v.win, 10, 20, 0x000000,
 		display_str);
 	free(moves_str);
 	free(display_str);
@@ -36,7 +36,7 @@ void	display_items_count(t_so_long *so_long)
 	display_item_str = ft_strjoin("| Items : ", items_str);
 	mlx_put_image_to_window(so_long->mlx_v.mlx, so_long->mlx_v.win,
 		so_long->game.wall_s_01.ptr, 0, 0);
-	mlx_string_put(so_long->mlx_v.mlx, so_long->mlx_v.win, 80, 20, 0xFFFFFF,
+	mlx_string_put(so_long->mlx_v.mlx, so_long->mlx_v.win, 80, 20, 0x000000,
 		display_item_str);
 	free(items_str);
 	free(display_item_str);

@@ -1,28 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   close_file.c                                       :+:      :+:    :+:   */
+/*   flood_fill.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/05 15:02:24 by jowagner          #+#    #+#             */
-/*   Updated: 2025/04/07 19:34:39 by jowagner         ###   ########.fr       */
+/*   Created: 2025/04/09 15:04:34 by jowagner          #+#    #+#             */
+/*   Updated: 2025/04/09 15:04:43 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-int	close_file(int fd)
-{
-	int	result;
-
-	result = close(fd);
-	if (result == -1)
-	{
-		perror("Error in close_file : ");
-		exit(1);
-		return (result);
-	}
-	else
-		return (result);
-}

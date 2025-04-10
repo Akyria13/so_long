@@ -6,7 +6,7 @@
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 18:02:28 by jowagner          #+#    #+#             */
-/*   Updated: 2025/04/08 17:06:42 by jowagner         ###   ########.fr       */
+/*   Updated: 2025/04/10 18:39:05 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	reset_game(t_so_long *so_long)
 		return ;
 	}
 	map_path = ft_strdup(so_long->map_file);
-	free_map(so_long->data.map);
+	free_map(so_long->data.map, false);
 	so_long->data.map = map_init(pre_read(open_file(map_path)), map_path);
 	free(map_path);
 	so_long->player.mooves = 0;
@@ -49,7 +49,7 @@ static bool	is_move_valid(t_so_long *so_long, int new_x, int new_y)
 	}
 	if (so_long->data.map[new_y][new_x] == 'X')
 	{
-		ft_printf("You loose, you died from enemy Lugia.");
+		ft_printf("You loose, you died from enemy Lugia.\n");
 		close_window(so_long);
 	}
 	if (so_long->map_r.nbr_items == so_long->map_r.nbr_collectible)

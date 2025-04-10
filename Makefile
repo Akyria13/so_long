@@ -12,17 +12,16 @@ MLX_FLAGS		:=		-lXext -lX11 -lm -lz
 
 
 SRC				:=		src/main.c \
-						src/initialization/close_file.c \
 						src/initialization/free_map.c \
 						src/initialization/initialization.c \
-						src/initialization/map_init.c \
-						src/initialization/open_file.c \
-						src/initialization/pre_read.c \
+						src/initialization/read_file.c \
 						src/mlx/sprite_init.c \
 						src/parsing/check_file_extension.c \
+						src/parsing/flood_fill.c \
 						src/parsing/is_map_empty.c \
 						src/parsing/is_map_have_wall.c \
 						src/parsing/is_map_rectangular.c \
+						src/parsing/is_map_too_high.c \
 						src/parsing/is_map_valid_format.c \
 						src/parsing/parsing_initialization.c \
 						src/parsing/remove_newline.c \

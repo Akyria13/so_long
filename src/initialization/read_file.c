@@ -1,16 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_init.c                                         :+:      :+:    :+:   */
+/*   read_file.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/27 14:53:13 by jowagner          #+#    #+#             */
-/*   Updated: 2025/04/07 19:34:26 by jowagner         ###   ########.fr       */
+/*   Created: 2025/04/10 21:35:42 by jowagner          #+#    #+#             */
+/*   Updated: 2025/04/10 22:07:32 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+int	open_file(char *filename)
+{
+	int	fd;
+
+	fd = open(filename, O_RDONLY);
+	if (fd < 0)
+	{
+		perror("Error in open_file ");
+		exit(1);
+		return (1);
+	}
+	else
+		return (fd);
+}
+
+int	pre_read(int fd)
+{
+	char	*line;
+	int		count_line;
+
+	count_line = 0;
+	line = "";
+	while (line != NULL)
+	{
+		line = get_next_line(fd);
+		if (line)
+			count_line++;
+		free(line);
+	}
+	close_file(fd);
+	return (count_line);
+}
 
 char	**map_init(int count_line, char *filename)
 {
@@ -29,4 +62,19 @@ char	**map_init(int count_line, char *filename)
 	get_next_line(fd);
 	close_file(fd);
 	return (data.map);
+}
+
+int	close_file(int fd)
+{
+	int	result;
+
+	result = close(fd);
+	if (result == -1)
+	{
+		perror("Error in close_file : ");
+		exit(1);
+		return (result);
+	}
+	else
+		return (result);
 }

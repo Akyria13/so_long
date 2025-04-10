@@ -6,7 +6,7 @@
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 18:44:43 by jowagner          #+#    #+#             */
-/*   Updated: 2025/04/08 16:48:56 by jowagner         ###   ########.fr       */
+/*   Updated: 2025/04/10 21:35:07 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,13 @@ typedef struct s_coordinate
 	int					y;
 }						t_coordinate;
 
+typedef struct s_occur
+{
+	int					player_occur;
+	int					exit_occur;
+	int					collectible_occur;
+}						t_occur;
+
 typedef struct s_player
 {
 	t_coordinate		coords;
@@ -138,6 +145,7 @@ typedef struct s_so_long
 	t_map_requirements	map_r;
 	t_player			player;
 	t_coordinate		exit_coords;
+	t_occur				occur;
 	char				*map_file;
 	t_animation			animation;
 }						t_so_long;
@@ -147,7 +155,7 @@ typedef struct s_so_long
 //--- Utils functions ---//
 //- Initialization -//
 int						close_file(int fd);
-void					free_map(char **map);
+void					free_map(char **map, bool shouldExit);
 void					initialization(char *filename, t_so_long *so_long);
 char					**map_init(int count_line, char *filename);
 int						open_file(char *filename);
@@ -167,7 +175,8 @@ bool					check_file_extension(char *filepath, char *extension);
 bool					is_map_empty(t_data data);
 bool					is_map_have_wall(t_data data);
 bool					is_map_rectangular(t_data data);
-bool					is_map_valid_format(t_data data);
+bool					is_map_too_high(t_data data);
+bool					is_map_valid_format(t_so_long *so_long);
 void					parsing_initialization(t_so_long *so_long);
 void					remove_newline(t_data data);
 //--- --- --- --- ---//
