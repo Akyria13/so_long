@@ -17,10 +17,10 @@ SRC				:=		src/main.c \
 						src/initialization/read_file.c \
 						src/mlx/sprite_init.c \
 						src/parsing/check_file_extension.c \
-						src/parsing/flood_fill.c \
 						src/parsing/is_map_empty.c \
 						src/parsing/is_map_have_wall.c \
 						src/parsing/is_map_rectangular.c \
+						src/parsing/is_map_solvable.c \
 						src/parsing/is_map_too_high.c \
 						src/parsing/is_map_valid_format.c \
 						src/parsing/parsing_initialization.c \
@@ -28,7 +28,7 @@ SRC				:=		src/main.c \
 						src/player/display_count.c \
 						src/player/element_position.c \
 						src/player/init_element.c \
-						src/player/player_moove.c \
+						src/player/player_move.c \
 						src/player/render_player.c \
 						src/player/render_env.c \
 						src/window/close_window.c \

@@ -6,7 +6,7 @@
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 18:11:11 by jowagner          #+#    #+#             */
-/*   Updated: 2025/04/01 19:02:35 by jowagner         ###   ########.fr       */
+/*   Updated: 2025/04/13 16:16:44 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,15 @@
 static bool	is_vertical_walls_valid(t_data data)
 {
 	size_t	i;
+	size_t	last_col;
 
+	last_col = ft_strlen(data.map[0]);
 	i = 0;
 	while (data.map[i] != NULL)
 	{
-		if (data.map[i][0] != '1' || data.map[i][ft_strlen(data.map[i])
-			- 1] != '1')
+		if (ft_strlen(data.map[i]) < last_col)
+			return (false);
+		if (data.map[i][0] != '1' || data.map[i][last_col - 1] != '1')
 			return (false);
 		i++;
 	}

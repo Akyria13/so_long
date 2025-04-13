@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   player_moove.c                                     :+:      :+:    :+:   */
+/*   player_move.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -25,7 +25,7 @@ void	reset_game(t_so_long *so_long)
 	free_map(so_long->data.map, false);
 	so_long->data.map = map_init(pre_read(open_file(map_path)), map_path);
 	free(map_path);
-	so_long->player.mooves = 0;
+	so_long->player.moves = 0;
 	so_long->map_r.nbr_items = 0;
 	so_long->map_r.player_on_exit = false;
 	count_map_elements(so_long);
@@ -57,8 +57,8 @@ static bool	is_move_valid(t_so_long *so_long, int new_x, int new_y)
 	if (so_long->data.map[new_y][new_x] == 'E'
 		&& so_long->map_r.nbr_items == so_long->map_r.nbr_collectible)
 	{
-		so_long->player.mooves++;
-		ft_printf("You won in %d mooves.\n", so_long->player.mooves);
+		so_long->player.moves++;
+		ft_printf("You won in %d moves.\n", so_long->player.moves);
 		close_window(so_long);
 	}
 	return (true);

@@ -6,7 +6,7 @@
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 18:21:55 by jowagner          #+#    #+#             */
-/*   Updated: 2025/04/09 12:20:03 by jowagner         ###   ########.fr       */
+/*   Updated: 2025/04/13 16:11:14 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,10 @@ void	window_size(t_data *data)
 
 	if (data->map == NULL)
 		return ;
+	i = ft_strlen(data->map[0]);
 	j = 0;
 	while (data->map[j] != NULL)
-	{
-		i = 0;
-		while (data->map[j][i])
-		{
-			i++;
-		}
 		j++;
-	}
 	data->width_map = i;
 	data->height_map = j;
 }

@@ -6,7 +6,7 @@
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 16:09:08 by jowagner          #+#    #+#             */
-/*   Updated: 2025/04/10 18:39:30 by jowagner         ###   ########.fr       */
+/*   Updated: 2025/04/13 15:15:08 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@ int	init_so_long(t_so_long *so_long)
 	sprite_init_enemy(so_long);
 	sprite_init_exit_and_collectibles(so_long);
 	so_long->map_r.player_on_exit = false;
-	init_player_position(so_long);
-	count_map_elements(so_long);
 	put_tiles_env(so_long);
 	put_tiles(so_long);
 	mlx_loop_hook(so_long->mlx_v.mlx, animation_loop, so_long);

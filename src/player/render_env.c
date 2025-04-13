@@ -6,7 +6,7 @@
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 16:06:42 by jowagner          #+#    #+#             */
-/*   Updated: 2025/04/09 16:13:41 by jowagner         ###   ########.fr       */
+/*   Updated: 2025/04/13 16:33:34 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,13 @@ void	render_collectibles(t_so_long *so_long, int x, int y, char tile)
 {
 	if (tile == 'C')
 		mlx_put_image_to_window(so_long->mlx_v.mlx, so_long->mlx_v.win,
-			so_long->game.collectible_s_01.ptr, x * SIZE_S, y * SIZE_S);
+			so_long->game.collec_s_01.ptr, x * SIZE_S, y * SIZE_S);
 	else if (tile == 'c')
 		mlx_put_image_to_window(so_long->mlx_v.mlx, so_long->mlx_v.win,
-			so_long->game.collectible_s_02.ptr, x * SIZE_S, y * SIZE_S);
+			so_long->game.collec_s_02.ptr, x * SIZE_S, y * SIZE_S);
 	else if (tile == 'M')
 		mlx_put_image_to_window(so_long->mlx_v.mlx, so_long->mlx_v.win,
-			so_long->game.collectible_s_03.ptr, x * SIZE_S, y * SIZE_S);
+			so_long->game.collec_s_03.ptr, x * SIZE_S, y * SIZE_S);
 }
 
 int	animation_loop(t_so_long *so_long)

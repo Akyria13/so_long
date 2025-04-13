@@ -6,7 +6,7 @@
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 14:43:17 by jowagner          #+#    #+#             */
-/*   Updated: 2025/04/08 16:15:34 by jowagner         ###   ########.fr       */
+/*   Updated: 2025/04/11 18:45:57 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ void	put_tiles_env(t_so_long *so_long)
 	char	tile;
 
 	y = 0;
-	while (so_long->data.map[y])
+	while (y < so_long->data.height_map)
 	{
 		x = 0;
-		while (so_long->data.map[y][x])
+		while (x < so_long->data.width_map)
 		{
 			tile = so_long->data.map[y][x];
 			if (tile == '1' || tile == '0')
@@ -31,7 +31,7 @@ void	put_tiles_env(t_so_long *so_long)
 				render_exit(so_long, x, y);
 			else
 				mlx_put_image_to_window(so_long->mlx_v.mlx, so_long->mlx_v.win,
-					so_long->game.grass_s_01.ptr, x * SIZE_S, y * SIZE_S);
+					so_long->game.wall_s_01.ptr, x * SIZE_S, y * SIZE_S);
 			x++;
 		}
 		y++;
@@ -45,10 +45,10 @@ void	put_tiles(t_so_long *so_long)
 	char	tile;
 
 	y = 0;
-	while (so_long->data.map[y])
+	while (y < so_long->data.height_map)
 	{
 		x = 0;
-		while (so_long->data.map[y][x])
+		while (x < so_long->data.width_map)
 		{
 			tile = so_long->data.map[y][x];
 			if (tile == 'P')

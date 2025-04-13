@@ -6,7 +6,7 @@
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 19:05:45 by jowagner          #+#    #+#             */
-/*   Updated: 2025/04/01 19:02:12 by jowagner         ###   ########.fr       */
+/*   Updated: 2025/04/13 16:12:26 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,9 @@ void	initialization(char *filename, t_so_long *so_long)
 	so_long->data.map = map_init(count_line, filename);
 	if (!so_long->data.map)
 		ft_putstr_fd("Error initializing map.\n", 2);
+	init_player_position(so_long);
+	count_map_elements(so_long);
+	remove_newline(so_long->data);
+	flood_fill_after_parsing(so_long);
 	window_size(&so_long->data);
-	parsing_initialization(so_long);
 }

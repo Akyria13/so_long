@@ -6,7 +6,7 @@
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 16:33:30 by jowagner          #+#    #+#             */
-/*   Updated: 2025/04/08 16:34:01 by jowagner         ###   ########.fr       */
+/*   Updated: 2025/04/13 15:59:53 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,4 @@ void	count_map_elements(t_so_long *so_long)
 		}
 		y++;
 	}
-	ft_printf("Total collectibles to find : %d\n",
-		so_long->map_r.nbr_collectible);
 }
