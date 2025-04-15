@@ -7,9 +7,8 @@ NAME			:= 		so_long
 
 AR				:= 		ar -rcs
 CC				:= 		cc
-CFLAGS			:= 		-Wall -Wextra -Werror -MD -MP -g3 -Iinc/
+CFLAGS			:= 		-Wall -Wextra -Werror -MD -MP -Iinc/
 MLX_FLAGS		:=		-lXext -lX11 -lm -lz
-
 
 SRC				:=		src/main.c \
 						src/initialization/free_map.c \
@@ -51,17 +50,17 @@ OBJ             := 		$(SRC:$(SRC_PATH)%.c=$(OBJ_DIR)%.o)
 
 #OBJ_BONUS 		:= 		$(SRC_BONUS:%.c=$(OBJ_DIR)%.o)
 DEP				:=		$(OBJ:%.o=%.d)
-
--include $(DEP)
+override DIRS	:=		$(sort $(dir $(NAME) $(OBJ) $(DEP)))
 
 ########################################################################################################################
 #                                                      TARGETS                                                         #
 ########################################################################################################################
 
-all : 					.print_header lib $(NAME)
+all : 					lib $(NAME)
 
 lib :
-							@$(MAKE) --silent -C $(LIBFT_DIR)
+							$(MAKE) -C $(MLX)
+							$(MAKE) -C $(LIBFT_DIR)
 
 clean :					.print_header
 							@printf "%-50b%b" "  $(YELLOW)[so_long/$(OBJ_DIR)] :$(RESET)" "\n"
@@ -105,29 +104,18 @@ debug :
 #                                                       COMMANDS                                                       #
 ########################################################################################################################
 
-$(NAME) 			: 	$(OBJ) $(LIBFT)
-							@$(MAKE) --silent -C $(MLX) > /dev/null 2>&1
-							@printf "%-50b%b" "  $(YELLOW)[MLX] :$(RESET)" "\n"
-							@printf "%-50b%b" "  => $(BOLD_GREEN)Created$(RESET)" $(call PROGRESS_BAR) "$(BOLD_GREEN)[✓]$(RESET)\n"
-							@printf "%-50b%b" "\n  $(YELLOW)[$(NAME)] :$(RESET)" "\n"
-							@printf "%-50b%b" "  => $(BOLD_GREEN)Created$(RESET)" $(call PROGRESS_BAR) "$(BOLD_GREEN)[✓]$(RESET)\n"
-							@$(CC) -o $(NAME) $(OBJ) $(LIBFT) $(MLX)/libmlx.a $(MLX_FLAGS)
-							$(call SEPARATOR)
+$(NAME) 			: 	$(OBJ)
+							$(CC) -o $(NAME) $(OBJ) $(LIBFT) $(MLX)/libmlx.a $(MLX_FLAGS)
 
-$(OBJ_DIR)%.o		:	 $(SRC_PATH)%.c $(INC_PATH)so_long.h | $(OBJ_DIR)
-							@mkdir -p $(dir $@)
-							@$(CC) $(CFLAGS) -I$(INC_PATH) -I$(LIBFT_DIR) -c $< -o $@
+$(OBJ)				:	| $(DIRS)
 
-$(OBJ_DIR)			:
-							@printf "%-50b%b" "  $(YELLOW)[so_long/$(OBJ_DIR)] :$(RESET)" "\n"
-							@printf "%-50b%b" "  => $(BOLD_GREEN)Created$(RESET)" $(call PROGRESS_BAR) "$(BOLD_GREEN)[✓]$(RESET)\n"
-							@mkdir -p $(OBJ_DIR)
-							@mkdir -p $(OBJ_DIR)initialization/
-							@mkdir -p $(OBJ_DIR)mlx/
-							@mkdir -p $(OBJ_DIR)parsing/
-							@mkdir -p $(OBJ_DIR)player/
-							@mkdir -p $(OBJ_DIR)window/
-							@printf "\n"
+$(DIRS):
+							mkdir -p $@
+
+-include $(DEP)
+
+$(OBJ_DIR)%.o		:	 $(SRC_PATH)%.c $(INC_PATH)so_long.h
+							$(CC) $(CFLAGS) -c -o $@ $<
 
 ########################################################################################################################
 #                                                      DISPLAY                                                         #
