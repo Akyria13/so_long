@@ -18,7 +18,7 @@ void	reset_game(t_so_long *so_long)
 
 	if (!so_long->map_file)
 	{
-		ft_printf("Error: map_file is not initialized\n");
+		ft_printf("Error.\nMap_file is not initialized\n");
 		return ;
 	}
 	map_path = ft_strdup(so_long->map_file);
@@ -49,7 +49,7 @@ static bool	is_move_valid(t_so_long *so_long, int new_x, int new_y)
 	}
 	if (so_long->data.map[new_y][new_x] == 'X')
 	{
-		ft_printf("You loose, you died from enemy Lugia.\n");
+		ft_printf("You loose.\nYou died from enemy Lugia.\n");
 		close_window(so_long);
 	}
 	if (so_long->map_r.nbr_items == so_long->map_r.nbr_collectible)

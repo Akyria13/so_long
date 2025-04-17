@@ -6,7 +6,7 @@
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 18:44:43 by jowagner          #+#    #+#             */
-/*   Updated: 2025/04/13 16:47:04 by jowagner         ###   ########.fr       */
+/*   Updated: 2025/04/17 21:03:29 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@
 # define WALL_S_F01 "./textures/Tree-Frame01.xpm"
 # define GRASS_S_F01 "./textures/Grass-Frame01.xpm"
 # define EXIT_S_01 "./textures/Well-Frame01.xpm"
-# define PLAYER_ON_EXIT_S_01 "./textures/Player-on-Well-Frame01.xpm"
 # define COLLECTIBLE_S_F01 "./textures/Pokeball-01-Frame01.xpm"
 # define COLLECTIBLE_S_F02 "./textures/Pokeball-02-Frame01.xpm"
 # define COLLECTIBLE_S_F03 "./textures/Pokeball-03-Frame01.xpm"
@@ -128,7 +127,6 @@ typedef struct s_game
 	t_image				p_right_s_01;
 	t_image				p_right_l_02;
 	t_image				p_right_r_03;
-	t_image				p_on_exit_s_01;
 	t_image				enemy_s_01;
 	t_image				enemy_s_02;
 	t_image				enemy_s_03;
@@ -159,13 +157,16 @@ typedef struct s_so_long
 //- Initialization -//
 int						close_file(int fd);
 void					free_map(char **map, bool shouldExit);
-void					initialization(char *filename, t_so_long *so_long);
+int						initialization(char *filename, t_so_long *so_long);
 char					**map_init(int count_line, char *filename);
 int						open_file(char *filename);
 int						pre_read(int fd);
 //--- --- --- --- ---//
 
 //- MLX -//
+void					destroy_image_player(t_so_long *so_long);
+void					destroy_image_env(t_so_long *so_long);
+void					free_image(t_so_long *so_long);
 void					sprite_init_env(t_so_long *so_long);
 void					sprite_init_enemy(t_so_long *so_long);
 void					sprite_init_player_top_and_bot(t_so_long *so_long);

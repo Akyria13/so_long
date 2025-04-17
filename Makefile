@@ -14,6 +14,7 @@ SRC				:=		src/main.c \
 						src/initialization/free_map.c \
 						src/initialization/initialization.c \
 						src/initialization/read_file.c \
+						src/mlx/free_image.c \
 						src/mlx/sprite_init.c \
 						src/parsing/check_file_extension.c \
 						src/parsing/is_map_empty.c \

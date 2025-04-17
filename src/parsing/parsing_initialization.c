@@ -6,7 +6,7 @@
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 16:03:41 by jowagner          #+#    #+#             */
-/*   Updated: 2025/04/13 16:11:26 by jowagner         ###   ########.fr       */
+/*   Updated: 2025/04/17 16:46:40 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	parsing_initialization(t_so_long *so_long)
 	}
 	if (!is_map_valid_format(so_long))
 	{
-		ft_putstr_fd("Map is in invalid format (check your map character).\n\
+		ft_putstr_fd("Error.\nMap is in invalid format (check your map character).\n\
 Only '0', '1', 'P', 'E', 'C', 'c', 'M', 'X' are allowed.\n", 2);
 		free_map(so_long->data.map, true);
 	}

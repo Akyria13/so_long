@@ -6,7 +6,7 @@
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 21:35:42 by jowagner          #+#    #+#             */
-/*   Updated: 2025/04/13 15:39:01 by jowagner         ###   ########.fr       */
+/*   Updated: 2025/04/17 21:21:17 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	open_file(char *filename)
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)
 	{
-		perror("Error in open_file ");
+		perror("Error.\nIn open_file ");
 		exit(1);
 		return (1);
 	}
@@ -32,6 +32,8 @@ int	pre_read(int fd)
 	char	*line;
 	int		count_line;
 
+	if (fd < 0)
+		return (-1);
 	count_line = 0;
 	line = "";
 	while (line != NULL)
@@ -45,21 +47,42 @@ int	pre_read(int fd)
 	return (count_line);
 }
 
+static void	gnl_clear(int fd)
+{
+	char	*tmp;
+
+	tmp = get_next_line(fd);
+	while (tmp)
+	{
+		free(tmp);
+		tmp = get_next_line(fd);
+	}
+}
+
 char	**map_init(int count_line, char *filename)
 {
 	t_data	data;
-	int		i;
 	int		fd;
+	int		i;
 
 	fd = open_file(filename);
 	data.map = malloc(sizeof(char *) * (count_line + 1));
-	if (data.map == NULL)
+	if (!data.map)
 		return (NULL);
-	data.map[count_line] = NULL;
 	i = 0;
 	while (i < count_line)
-		data.map[i++] = get_next_line(fd);
-	get_next_line(fd);
+	{
+		data.map[i] = get_next_line(fd);
+		i++;
+	}
+	if (i != count_line)
+	{
+		free_map(data.map, false);
+		return (NULL);
+	}
+	data.map[i] = NULL;
+	free(get_next_line(fd));
+	gnl_clear(fd);
 	close_file(fd);
 	return (data.map);
 }
@@ -71,7 +94,7 @@ int	close_file(int fd)
 	result = close(fd);
 	if (result == -1)
 	{
-		perror("Error in close_file : ");
+		perror("Error.\nIn close_file ");
 		exit(1);
 		return (result);
 	}
