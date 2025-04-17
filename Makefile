@@ -48,7 +48,6 @@ MLX 			:= 		./minilibx-linux
 
 OBJ             := 		$(SRC:$(SRC_PATH)%.c=$(OBJ_DIR)%.o)
 
-#OBJ_BONUS 		:= 		$(SRC_BONUS:%.c=$(OBJ_DIR)%.o)
 DEP				:=		$(OBJ:%.o=%.d)
 override DIRS	:=		$(sort $(dir $(NAME) $(OBJ) $(DEP)))
 
@@ -63,35 +62,26 @@ lib :
 							$(MAKE) -C $(LIBFT_DIR)
 
 clean :					.print_header
-							@printf "%-50b%b" "  $(YELLOW)[so_long/$(OBJ_DIR)] :$(RESET)" "\n"
-							@rm -rf $(OBJ_DIR)
-							@printf "%-50b%b" "  => $(BOLD_RED)Clean$(RESET)" $(call PROGRESS_BAR) "$(BOLD_GREEN)[✓]$(RESET)\n"
+							@printf "%-50b%b" "$(YELLOW)[so_long/$(OBJ_DIR)] :$(RESET)" "\n"
+							rm -rf $(OBJ_DIR)
+							@printf "%-50b%b" "=> $(BOLD_RED)Clean$(RESET)" $(call PROGRESS_BAR) "$(BOLD_GREEN)[✓]$(RESET)\n"
 							@printf "\n"
-							@printf "%-50b%b" "  $(YELLOW)[$(LIBFT_DIR)obj] :$(RESET)" "\n"
-							@$(MAKE) --silent -C $(LIBFT_DIR) clean
-							@printf "%-50b%b" "  => $(BOLD_RED)Clean$(RESET)" $(call PROGRESS_BAR) "$(BOLD_GREEN)[✓]$(RESET)\n"
+							@printf "%-50b%b" "$(YELLOW)[$(LIBFT_DIR)obj] :$(RESET)" "\n"
+							$(MAKE) --silent -C $(LIBFT_DIR) clean
+							@printf "%-50b%b" "=> $(BOLD_RED)Clean$(RESET)" $(call PROGRESS_BAR) "$(BOLD_GREEN)[✓]$(RESET)\n"
 							@printf "\n"
 
 fclean : 				clean
-							@rm -f $(NAME)
-							@$(MAKE) --silent -C $(LIBFT_DIR) fclean
-							@printf "%-50b%b" "  $(YELLOW)[$(NAME)] :$(RESET)" "\n"
-							@printf "%-50b%b" "  => $(BOLD_RED)Clean$(RESET)" $(call PROGRESS_BAR) "$(BOLD_GREEN)[✓]$(RESET)\n"
-							@$(MAKE) --silent -C $(MLX) clean > /dev/null 2>&1
-							@printf "%-50b%b" "\n  $(YELLOW)[$(MLX)] :$(RESET)" "\n"
-							@printf "%-50b%b" "  => $(BOLD_RED)Clean$(RESET)" $(call PROGRESS_BAR) "$(BOLD_GREEN)[✓]$(RESET)\n"
+							rm -f $(NAME)
+							$(MAKE) --silent -C $(LIBFT_DIR) fclean
+							@printf "%-50b%b" "$(YELLOW)[$(NAME)] :$(RESET)" "\n"
+							@printf "%-50b%b" "=> $(BOLD_RED)Clean$(RESET)" $(call PROGRESS_BAR) "$(BOLD_GREEN)[✓]$(RESET)\n"
+							$(MAKE) --silent -C $(MLX) clean > /dev/null 2>&1
+							@printf "%-50b%b" "\n$(YELLOW)[$(MLX)] :$(RESET)" "\n"
+							@printf "%-50b%b" "=> $(BOLD_RED)Clean$(RESET)" $(call PROGRESS_BAR) "$(BOLD_GREEN)[✓]$(RESET)\n"
 							$(call SEPARATOR)
 
 re : 					.print_header fclean all $(LIBFT) $(NAME)
-
-debug :
-							@printf "Checking source file paths : "
-							@printf "SRC_PATH = $(SRC_PATH)"
-							@ls -la $(SRC_PATH)
-							@printf "Main.c exist ? $(shell test -f $(SRC_PATH)main.c && echo 'YES' || echo 'NO')\n"
-							@printf "DIR_PATH_INIT = $(DIR_PATH_INIT)"
-							@ls -la $(DIR_PATH_INIT)
-							@printf "Free_map.c exist ? $(shell test -f $(DIR_PATH_INIT)free_map.c && echo 'YES' || echo 'NO')"
 
 .print_header :
 							$(call TITLE)
@@ -112,10 +102,10 @@ $(OBJ)				:	| $(DIRS)
 $(DIRS):
 							mkdir -p $@
 
--include $(DEP)
-
 $(OBJ_DIR)%.o		:	 $(SRC_PATH)%.c $(INC_PATH)so_long.h
 							$(CC) $(CFLAGS) -c -o $@ $<
+
+-include $(DEP)
 
 ########################################################################################################################
 #                                                      DISPLAY                                                         #
