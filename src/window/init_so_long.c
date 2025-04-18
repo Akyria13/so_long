@@ -6,7 +6,7 @@
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 16:09:08 by jowagner          #+#    #+#             */
-/*   Updated: 2025/04/17 20:01:18 by jowagner         ###   ########.fr       */
+/*   Updated: 2025/04/18 19:33:19 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,5 @@ int	init_so_long(t_so_long *so_long)
 	mlx_hook(so_long->mlx_v.win, DestroyNotify, StructureNotifyMask,
 		close_window, so_long);
 	mlx_loop(so_long->mlx_v.mlx);
-	free_map(so_long->data.map, false);
 	return (0);
 }

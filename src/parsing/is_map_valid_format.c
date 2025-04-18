@@ -6,7 +6,7 @@
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 16:17:34 by jowagner          #+#    #+#             */
-/*   Updated: 2025/04/10 21:14:30 by jowagner         ###   ########.fr       */
+/*   Updated: 2025/04/18 19:23:47 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,5 +82,4 @@ bool	is_map_valid_format(t_so_long *so_long)
 		i++;
 	}
 	return (is_map_valid_element(so_long));
-	return (true);
 }

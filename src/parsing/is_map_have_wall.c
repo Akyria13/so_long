@@ -6,7 +6,7 @@
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 18:11:11 by jowagner          #+#    #+#             */
-/*   Updated: 2025/04/13 16:16:44 by jowagner         ###   ########.fr       */
+/*   Updated: 2025/04/18 19:22:33 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,7 @@ static bool	is_horizontal_walls_valid(t_data data)
 
 bool	is_map_have_wall(t_data data)
 {
-	return (is_vertical_walls_valid(data) && is_horizontal_walls_valid(data));
+	if (is_vertical_walls_valid(data) && is_horizontal_walls_valid(data))
+		return (true);
+	return (false);
 }

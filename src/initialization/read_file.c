@@ -6,7 +6,7 @@
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 21:35:42 by jowagner          #+#    #+#             */
-/*   Updated: 2025/04/18 16:56:22 by jowagner         ###   ########.fr       */
+/*   Updated: 2025/04/18 19:33:53 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,6 @@ char	**map_init(int count_line, char *filename)
 		tmp++;
 	}
 	*tmp = NULL;
-	free(get_next_line(fd));
 	gnl_clear(fd);
 	close_file(fd);
 	return (data.map);

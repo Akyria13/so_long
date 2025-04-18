@@ -6,7 +6,7 @@
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 19:05:45 by jowagner          #+#    #+#             */
-/*   Updated: 2025/04/17 21:18:19 by jowagner         ###   ########.fr       */
+/*   Updated: 2025/04/18 19:23:09 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ the extension map must be .ber.\n", 2);
 	{
 		ft_putstr_fd("Error.\nIn initializing map.\n", 2);
 		free_map(so_long->data.map, false);
+		exit (1);
 	}
 	init_player_position(so_long);
 	count_map_elements(so_long);
