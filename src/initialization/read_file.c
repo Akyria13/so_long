@@ -6,7 +6,7 @@
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 21:35:42 by jowagner          #+#    #+#             */
-/*   Updated: 2025/04/17 21:21:17 by jowagner         ###   ########.fr       */
+/*   Updated: 2025/04/18 16:56:22 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,25 +62,25 @@ static void	gnl_clear(int fd)
 char	**map_init(int count_line, char *filename)
 {
 	t_data	data;
+	char	**tmp;
 	int		fd;
-	int		i;
 
 	fd = open_file(filename);
 	data.map = malloc(sizeof(char *) * (count_line + 1));
 	if (!data.map)
 		return (NULL);
-	i = 0;
-	while (i < count_line)
+	tmp = data.map;
+	while (count_line--)
 	{
-		data.map[i] = get_next_line(fd);
-		i++;
+		*tmp = get_next_line(fd);
+		if (!*tmp)
+		{
+			free_map(data.map, false);
+			return (NULL);
+		}
+		tmp++;
 	}
-	if (i != count_line)
-	{
-		free_map(data.map, false);
-		return (NULL);
-	}
-	data.map[i] = NULL;
+	*tmp = NULL;
 	free(get_next_line(fd));
 	gnl_clear(fd);
 	close_file(fd);

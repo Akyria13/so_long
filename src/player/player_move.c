@@ -12,29 +12,6 @@
 
 #include "so_long.h"
 
-void	reset_game(t_so_long *so_long)
-{
-	char	*map_path;
-
-	if (!so_long->map_file)
-	{
-		ft_printf("Error.\nMap_file is not initialized\n");
-		return ;
-	}
-	map_path = ft_strdup(so_long->map_file);
-	free_map(so_long->data.map, false);
-	so_long->data.map = map_init(pre_read(open_file(map_path)), map_path);
-	free(map_path);
-	so_long->player.moves = 0;
-	so_long->map_r.nbr_items = 0;
-	so_long->map_r.player_on_exit = false;
-	count_map_elements(so_long);
-	init_player_position(so_long);
-	put_tiles_env(so_long);
-	put_tiles(so_long);
-	ft_printf("Game reset !\n");
-}
-
 static bool	is_move_valid(t_so_long *so_long, int new_x, int new_y)
 {
 	if (so_long->data.map[new_y][new_x] == '1')
@@ -90,8 +67,6 @@ int	key_hook(int keycode, t_so_long *so_long)
 		ft_printf("Exit ./so_long. \n");
 		close_window(so_long);
 	}
-	else if (keycode == XK_r)
-		reset_game(so_long);
 	else if (keycode == XK_z || keycode == XK_w || keycode == XK_Up)
 		move_player(so_long, 0, -1);
 	else if (keycode == XK_s || keycode == XK_Down)

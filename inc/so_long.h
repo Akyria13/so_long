@@ -6,7 +6,7 @@
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 18:44:43 by jowagner          #+#    #+#             */
-/*   Updated: 2025/04/17 21:03:29 by jowagner         ###   ########.fr       */
+/*   Updated: 2025/04/18 17:18:43 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -217,7 +217,6 @@ void					render_player_left(t_so_long *so_long, int x, int y);
 void					render_player_right(t_so_long *so_long, int x, int y);
 void					render_player(t_so_long *so_long, int x, int y);
 //- Player -> Player moves -//
-void					reset_game(t_so_long *so_long);
 void					move_player(t_so_long *so_long, int dx, int dy);
 int						key_hook(int keycode, t_so_long *so_long);
 // Tiles
