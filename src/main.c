@@ -6,7 +6,7 @@
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 18:47:07 by jowagner          #+#    #+#             */
-/*   Updated: 2025/04/18 17:18:07 by jowagner         ###   ########.fr       */
+/*   Updated: 2025/04/19 17:36:16 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ int	main(int ac, char **av)
 		{
 			ft_putstr_fd("Error.\nSomething wrong with initialisation.\n",
 				2);
-			free(so_long.map_file);
 			return (1);
 		}
 	}

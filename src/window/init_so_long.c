@@ -6,7 +6,7 @@
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 16:09:08 by jowagner          #+#    #+#             */
-/*   Updated: 2025/04/18 19:33:19 by jowagner         ###   ########.fr       */
+/*   Updated: 2025/04/19 17:36:33 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ static void	init_mlx(t_so_long *so_long)
 		mlx_destroy_display(so_long->mlx_v.mlx);
 		free(so_long->mlx_v.mlx);
 		free_map(so_long->data.map, true);
-		free(so_long->map_file);
 	}
 }
 

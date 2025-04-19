@@ -6,7 +6,7 @@
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 18:44:43 by jowagner          #+#    #+#             */
-/*   Updated: 2025/04/18 17:18:43 by jowagner         ###   ########.fr       */
+/*   Updated: 2025/04/19 17:36:09 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,7 +149,6 @@ typedef struct s_so_long
 	t_player			player;
 	t_coordinate		exit_coords;
 	t_occur				occur;
-	char				*map_file;
 	t_animation			animation;
 }						t_so_long;
 
