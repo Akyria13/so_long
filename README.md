@@ -64,3 +64,11 @@ Bonus with :
 ```bash
 make
 ./so_long map/map0X.ber
+```
+
+![Screenshot from 2025-04-21 15-12-21](https://github.com/user-attachments/assets/b42188fc-fde1-4dfa-8384-a2a0a5da367f)
+
+---
+
+A special thanks to [**Axiaaa**](https://github.com/Axiaaa) for her help. 🙏
+
